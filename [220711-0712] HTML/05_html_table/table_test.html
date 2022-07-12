@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table test</title>
+</head>
+<style>
+  table{
+    border: 1px solid #000;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid #000;
+  }
+  tfoot {
+    background: pink;
+    text-align: center;
+  }
+</style>
+<body>
+  <table>
+    <tr>
+      <th style="background: pink;">첫번째</th>
+      <th>두번째</th>
+      <th>세번째</th>
+      <th>네번째</th>
+    </tr>
+    <tr>
+      <td style="background: pink;" rowspan="3">1, 2행</td>
+    </tr>
+    <tr>
+      <td colspan="3">1행 2열 - 1행 4열</td>
+    </tr>
+    <tr>
+      <td>2행 2열</td>
+      <td colspan="3">2행 3열, 4열</td>
+    </tr>
+    <tr>
+      <td style="background: pink;" rowspan="3">3, 4행</td>
+    </tr>
+    <tr>
+      <td colspan="2">3행 1, 2열</td>
+      <td rowspan="2">3행,4행 4열</td>
+    </tr>
+    <tr>
+      <td>4행 2열</td>
+      <td>4행 3열</td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td colspan="5">통합</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

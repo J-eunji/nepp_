@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form_input</title>
+</head>
+<body>
+  <table>
+    <!-- id로 form 이름 설정 -->
+    <form action="/signup" id="form1">
+      <tr>
+        <td>이름</td>
+        <td>
+          <!-- 가독성 -->
+          <input
+            type="text"
+            placeholder="이름을 입력해주세요" />
+          </td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="email" placeholder="이메일을 입력해주세요" /></td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password" placeholder="비밀번호를 입력해주세요" /></td>
+      </tr>
+      <tr>
+        <td>성별</td>
+        <td>
+          <input type="radio" name="gender" />여자
+          <input type="radio" name="gender" />남자
+        </td>
+      </tr>
+      <tr>
+        <td>연령대</td>
+        <td>
+          <input type="radio" name="gender" />10대
+          <input type="radio" name="gender" />20대
+          <input type="radio" name="gender" />30대 이상
+        </td>
+      </tr>
+      <tr>
+        <td>나이</td>
+        <td>
+          <input type="number" placeholder="나이를 입력해주세요"/>
+        </td>
+      </tr>
+      <tr>
+        <td>관심분야</td>
+        <td>
+          <input type="checkbox" name="interested">강아지
+          <input type="checkbox" name="interested">고양이
+          <input type="checkbox" name="interested">기타<input type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>프로필</td>
+        <td><input type="file"></td>
+      </tr>
+    </form>
+  </table>
+  <button>전송</button>
+  <!-- form 밖에 있어도 form="" 써주면 적용됨 -->
+  <button type="reset" form="form1">초기화</button>
+</body>
+</html>

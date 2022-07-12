@@ -1,0 +1,9 @@
+h1 {
+  color: #fff;
+  text-align: center;
+  background: powderblue;
+  border: rgb(255, 227, 232) 10px solid;
+}
+p {
+  font-size: 32px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p {
+      color: orange;
+      margin-bottom: 50px;
+    }
+    /* 별은 전체 태그 적용 */
+    * {
+      margin: 0;
+    }
+    b {
+      color: cornflowerblue;
+    }
+    .big {
+      font-size: 20px;
+    }
+    .bold {
+      font-weight: 1000;
+    }
+    .blue {
+      color: rgb(88, 160, 255);
+    }
+    #small {
+      font-size: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>선택자</h2>
+  <p>CSS를 적용하고자 하는 <b>요소</b>를 선택하기 위한 문법</p>
+
+  <h2>전체 요소 선택자</h2>
+  <p class="big">
+    html의 모든 <b>요소</b> 선택<br>
+    big 클래스 사용
+  </p>
+
+  <h2>타입 선택자</h2>
+  <p class="bold">
+    특정 태그를 사용한 <b>요소</b> 선택<br>
+    bold 클래스 사용
+  </p>
+
+  <h2 class="blue">클래스 선택자</h2>
+  <!-- big과 bold 라는 클래스명을 가지게 됨 -->
+  <p class="big bold"> 
+    특정 클래스명을 가진 <b>요소</b> 선택 <br>
+    class 속성(html)을 통해 클래스명 지정 가능<br>
+    class 이름 앞에 .을 붙여 선택자 사용<br>
+    제목에 blue 클래스로 폰트컬러 적용<br>
+    이 문단에 big bold 클래스 둘 다 적용
+  </p>
+  <h2 id="small">아이디 선택자</h2>
+  <p>
+    특정 아이디를 가진 요소 선택 <br />
+    html 요소의 id 속성을 통해 아이디 지정.<br>
+    id는 유일한 요소이다.<br>
+    id 이름 앞에 # 붙여 선택자 사용<br>
+    제목에 small id 사용, 폰트 5px
+  </p>
+</body>
+</html>

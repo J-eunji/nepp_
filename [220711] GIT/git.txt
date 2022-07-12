@@ -1,0 +1,22 @@
+#git
+- commit: 변경사항 저장 (언제든 이전 상태로 돌아갈 수 있음.)
+- push: 로컬에 저장된 변경사항을 github(원격저장소)에 업로드.
+- 간단히: git bash 사용 
+
+#branch
+분기처리, branch 내의 변경사항은 다른 branch에 영향주지 않음.
+ex) main branch 존재 -> test branch 생성 -> test에서 새 파일 생성 후 커밋해도 main branch에 영향 X
+
+#github desktop
+GUI(그래픽 유저 인터페이스) 마우스 클릭 가능한 프로그램
+
+#git push 과정 명령어 (수정 후 add부터 반복)
+1) 터미널 단축키 Ctrl+`
+2) git config --global user.name J-eunji : git에 로그인
+3) git add . : git 변경사항 모두(.) 추가
+4) git commit -m "변경내용작성" : git commit
+5) git push : github에 push
+
+#명령어
+ls : 모든 폴더 보여주기
+cd .\역슬래시\폴더이름 : 폴더 안으로 들어가기
