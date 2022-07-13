@@ -1,0 +1,109 @@
+.box {
+  background: powderblue;
+  color: #fff;
+
+  /* 기본값: 부모 요소의 너비를 넘지 않는 선에서 최대한의 너비 설정 */
+  width: auto;
+
+  /* 부모요소의 % 너비 설정 */
+  width: 20%;
+
+  /* 속성의 기본값으로 초기화 */
+  width: initial;
+
+  /* 가지고있는 컨텐츠의 높이만큼 늘어남 */
+  height: auto;
+  
+  /* 절대값 */
+  width: 100px;
+  height: 100px;
+
+  /* display : 요소를 어떻게 배치할 지 지정 */
+  /* block : 너비와 높이 설정 가능. 줄바꿈O */
+  display: block;
+
+  /* inline: 너비와 높이 설정 불가능. 줄바꿈X 
+  자신이 가진 컨텐츠 만큼만 차지함 */
+  display: inline;
+
+  /* inline+block */
+  display: inline-block
+}
+
+.box01 {
+  /* 개별적으로 적용 가능 */
+  /* margin-top: 30px; */
+  /*  값이 1개인 경우 상하좌우 모두 같은 값 적용 */
+  margin: 10px;
+  /* 값이 2개인 경우 상하, 좌우*/
+  margin: 20px 10px;
+  /* 값이 3개인 경우: 상, 좌우, 하 */
+  margin: 20px 10px 5px;
+  /* 값이 4개인 경우 : 상, 좌, 우, 하 */
+  margin: 5px 10px 15px 20px;
+}
+
+.box02 {
+  color: ivory;
+  /* 안쪽 여백 */
+  padding: 10px;
+  padding: 5px 15px;
+  padding-top: 20px;
+  padding: 10px 0;
+  padding-right: 100px;
+  background-color: intial;
+  /* 컨텐츠만 계산 */
+  box-sizing: content-box;
+  /* border까지 포함해서 패딩, 마진 지정 */
+  box-sizing: border-box;
+}
+
+span {
+  /* inline: margin은 좌우만 적용됨.
+  padding은 모두 적용되지만 높이가 원래 컨텐츠만큼만 계산됨.  */
+  display: inline-block; /*inline block으로 margin을 의도한 대로 모두 적용*/
+  margin: 10px;
+  padding: 5px;
+  border: solid 1px;
+}
+
+.borderbox {
+  margin-top: 100px;
+  width: 100px;
+  height: 100px;
+  
+  /* 5px 두께의 plum색 실선 */
+  border: 5px plum  solid;
+  
+  /* 색 */
+  border-color: black;
+  /* 선 모양 */
+  border-style: dashed;
+  /* 선 개별 속성 */
+  border-top: 1px solid palevioletred;
+  border-bottom: 7px dashed palevioletred;
+  /* 모서리를 지정값만큼 깎아냄 
+  50%는 원모양을 만든다.*/
+  border-radius: 15px; 
+  border-radius: 50%;
+}
+
+.wrapper {
+  padding: 20px;
+  width: 200px;
+  height: 300px;
+  border: 5px solid cornflowerblue;
+  /* overflow: hidden; */
+  overflow: scroll;
+  /* 넘치는 때에만 스크롤바 생성 auto */
+  overflow: auto; 
+  /* 가로세로 개별적용 */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.item {
+  width: 500px;
+  height: 400px;
+  background-color: yellowgreen;
+}
