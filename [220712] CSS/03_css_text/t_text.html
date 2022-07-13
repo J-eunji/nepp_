@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: "Noto Sans Korean";
+        src: url("./NotoSansKR-Regular.otf");
+        font-weight: 400;
+      }
+      html {
+        font-size: 16px;
+        font-family: "Noto Sans Korean";
+      }
+      body {
+        font-size: 16px;
+      }
+      p {
+        /* 
+            px : 모니터의 화소수가 기준.
+            em : 부모 요소의 대문자 M이 기준.
+            rem : 최상위 요소(root)의 글자 크기가 기준.
+        */
+        /* font-family: "Nanum Pen Script", "Nanum Brush Script"; */
+        font-size: 24px;
+        font-size: 1em;
+        font-size: 0.5rem;
+      }
+      .weight {
+        font-weight: 600; /* 100~900의 단위 사용. 400이 normal, 700 bold */
+        font-weight: bold;
+        font-weight: lighter;
+      }
+
+      .color {
+        color: #e8e8e8; /* hex : 16진법 => 0 ~ f*/
+        color: #000000;
+        color: #ffffff;
+        color: #ff0000; /* 0~255 : 16진법 코드 두개로 표현 가능*/
+        color: #00ff00;
+        color: #0000ff;
+      }
+      .align {
+        width: 500px;
+        text-align: justify; /* 양쪽 끝을 일자로 맞추기 위해 단어 사이 여백을 조금씩 다르게 조절. */
+      }
+      .transform {
+        /* text-transform: uppercase; 모든 문자를 대문자로 */
+        /* text-transform: lowercase; 모든 문자를 소문자로 */
+        text-transform: capitalize; /* 모든 단어의 첫글자를 대문자로 */
+      }
+      .decoration {
+        /* text-decoration: underline; 글자에 밑줄을 긋는다. */
+        /* text-decoration: overline; 글자에 윗줄을 긋는다. */
+        text-decoration: wavy line-through red 4px; /* 글자를 통과하는 선(취소선)을 긋는다. */
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .lineHeight {
+        /* line-height: 30px; 줄간격을 지정. */
+        line-height: 1.4em;
+      }
+      .spacing {
+        letter-spacing: 0.05em;
+        word-spacing: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>글자 관련 CSS 속성들</h2>
+    <p>font-size : 글자의 크기를 지정한다.</p>
+    <p class="weight">font-weight : 글자의 가중도(굵기)를 지정.</p>
+    <p class="color">color : 글자의 색상을 지정.</p>
+    <p class="align">text-align : 글자 정렬을 지정</p>
+    <p class="align transform lineHeight">
+      LOREM ipsum dolor sit amet consectetur adipisicing elit. Modi odit maxime
+      voluptas similique dolores, eos quas, amet recusandae repellendus sed nam
+      asperiores esse, delectus nobis exercitationem molestias doloremque sint
+      consectetur. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Aspernatur, quam cumque architecto voluptates asperiores libero. Nobis
+      quaerat repellendus saepe est nostrum
+    </p>
+    <a href="">구글</a>
+    <p class="decoration">text-decoration : 글자에 장식용 선을 추가.</p>
+    <p class="spacing">
+      letter-spacing : 글자 간의 간격을 지정. <br />
+      word-spacing : 단어 간의 간격을 지정.
+    </p>
+  </body>
+</html>
