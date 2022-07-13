@@ -1,0 +1,44 @@
+.container {
+  width: 2000px;
+  height: 5000px;
+  border: 3px solid palevioletred;
+  margin-top: 100px;
+  margin-left: 100px;
+  /* relative: 위치값을 지정할 수 있음.
+  없으면 container를 무시하고 box가 밖으로 나감 */
+  position: relative;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+
+.box01 {
+  background: papayawhip;
+    /* 위치가 이상하면 상위요소의 relative 여부를 확인하자.  */
+  position: absolute;  
+  top: 150px;
+  right: 150px;
+  left: 300px;
+
+  /* 겹쳐질 때 쌓이는 순서 */
+  z-index: 3;
+}
+
+.box02 {
+  background: powderblue;
+  top: 300px;
+  left: 300px;
+  /* fixed: 브라우저 창을 기준으로 배치 */
+  position: fixed;
+}
+
+.box03 {
+  background: plum;
+  /* sticky: 스크롤 움직이면 맨 위에 고정됨
+  임계점 만나면 그냥 같이 올라감*/
+  position: sticky;
+  top: 20px;
+  left: 20px;
+}

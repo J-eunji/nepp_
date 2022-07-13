@@ -43,3 +43,17 @@ visible; 기본값
 bhiden 넘치는 부분 자름
 scroll 스크롤바 생성
 -y -x 상하, 좌우 별도로 지정 가능
+------------------------------------------------------------
+@@@position
+static: 고정(기본값)
+relative: 위치값을 지정할 수 있음.
+absolute: <relative값을 사용한 상위 요소를 기준>으로 배치.
+fixed: 브라우저 창을 기준으로 배치.
+sticky: top, bottom, left, right 속성 중 하나는 반드시 필요함.
+설정 된 위치에서 fixed 속성처럼 동작해야 하는데 기준 위치가 없기 때문에 동작하지 않는 경우 입니다.
+
+#absolute fixed 등 절대 위치인 속성값 지정하면 inline처럼 동작.
+
+
+top: 위로부터 지정된 값만큼 내린다.
+offset: 적용 가능
