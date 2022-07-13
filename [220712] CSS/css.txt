@@ -57,3 +57,28 @@ sticky: top, bottom, left, right 속성 중 하나는 반드시 필요함.
 
 top: 위로부터 지정된 값만큼 내린다.
 offset: 적용 가능
+
+-------------
+
+@@@float
+-> 잘 쓰지 않음~~
+
+***header
+버튼들은 목록화 하는 것이 좋다
+font-size: 0px; -> 상위 요소에 적용하여 inline 마진 없애주기
+
+
+------
+css header test 해설
+
+링크들(html, css 등등)을 li 묶기(순서 X)
+li로 인해 줄바꿈 됨
+float:left로 행 나열
+clear:both를 a에 적용, 글씨 양 옆 공백 삭제
+ul 태그에 display: inline-block; -> 글자들이 가운데로 이동
+a태그들 사이를 띄어주려면
+   -> padding(글씨마다 너비가 달라지므로 사용X)
+   -> a 태그에 height로 높이 설정
+line-heiht로 높이 여백의 가운데로 이동
+text-align: center; 각자 가운데로 이동
+

@@ -1,0 +1,33 @@
+img {
+  float: right;
+  margin: 10px;
+}
+
+img:nth-child(1) {
+  width: 20%;
+  float: left; 
+}
+
+img:nth-child(2) {
+  width: 30%;
+  float: right;
+}
+
+p {
+  text-align: justify;
+  background-color: antiquewhite;
+}
+
+.box {
+  height: 100px;
+  background-color: paleturquoise;
+  clear: both;
+
+  float: right;
+  /* float을 적용하면 인라인 블록처럼 동작. */
+  width: 200px;
+}
+
+.container {
+  border: 1px solid;
+}

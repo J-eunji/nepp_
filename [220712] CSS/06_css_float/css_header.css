@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+}
+
+header {
+  background: rgb(216, 216, 216);
+}
+
+ul {
+  font-size: 0;
+  width:480px;
+  margin: 0 auto;
+}
+
+li {
+  height: 60px;
+  width: 120px;
+  text-align: center;
+
+  line-height: 60px; /*글자의 높이 자체를 설정*/
+  font-size: 16px;
+  display: inline-block;
+  background: rgb(165, 165, 165);
+}
+
+li a {
+  display: block;
+}
+
+li:hover {
+background: rgb(255, 229, 255);
+}
