@@ -1,0 +1,82 @@
+
+header {
+  background-color: #e8e8e8;
+  text-align: center;
+  font-size: 0;
+  position: relative;
+}
+
+ul {
+  font-size: 16px;
+  display: inline-block;
+  margin: 0;
+}
+
+li {
+  float: left;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: powderblue;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+.logo {
+  position: absolute;
+  left: 0px;
+}
+
+button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 40px;
+}
+
+.container {
+  width: auto;
+  height: 200px;
+  border: solid 1px black;
+  position: relative;
+  top: 100px;
+  left: center;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.box {
+  display: inline-block;
+
+  width: 150px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0;
+  margin-left: auto;
+  box-sizing: border-box;
+
+  background-size: cover;
+  background-position: center;
+
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  text-decoration: none;    
+}
+
+.box_ham {
+  background-image: url(./ham.jpg);
+}
+
+.box_dog {
+  background-image: url(./kaka.png);
+}
+
+.box_cat {
+  background-image: url(./cat.jpg);
+}

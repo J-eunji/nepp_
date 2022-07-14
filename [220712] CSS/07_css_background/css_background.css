@@ -1,0 +1,52 @@
+.container {
+  width: 500px;
+  height: 500px;
+  border: 5px solid rgb(60, 26, 153);
+}
+
+.box {
+  height: 33%;
+  border: 5px solid rgb(99, 99, 99);
+
+}
+
+.colorBox {
+  border:5px solid rgb(6, 160, 70);
+  background-color: pink;
+}
+
+.imgBox {
+  border: 5px solid purple;
+  background-color: pink;
+  background-image: url("./kaka.png"), url("./kaka.jpg"); /* 앞에 있는게 제일 위에 위치 */
+  background-size: 30% /* 바둑판 배열 배경이미지 크기 지정 */
+}
+
+.pngBox {
+  background-color: pink;
+  background-image: url("./kaka.png");
+  background-size: contain; /* 사진이 찌그러지지 않는 선에서 가장 크게 표현 */
+  background-repeat: no-repeat; /* 반복 금지, 기본값: 꽉 채울 때까지 반복 */
+  background-position: 50%;
+  
+}
+
+.bg {
+  height: 500px;
+  border: 3px solid #000;
+  background-image: url("./kaka.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: scroll;
+  background-attachment: scroll;
+}
+
+.bg02 {
+  height: 300px;
+  border: 3px solid #000;
+  background-image: url("./kaka.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: scroll;
+  background-attachment: scroll;
+}

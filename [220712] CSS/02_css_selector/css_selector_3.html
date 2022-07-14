@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+    /* 자식요소 중 n번째 요소인지 확인 */
+    ul li:nth-child(even) {
+      /* n: 모든 인덱스. => 계산을 더하면 다양하게 인덱싱 가능 */
+      /* odd(홀수), even(짝수) */
+      background-color: #b1b1b1;
+    }
+    /* 자식요소 중 첫번째 요소인지 확인 */
+    ul li:first-child {
+      color: red;
+    }
+    /* 자식요소 중 마지막 요소인지 확인 */
+      ul li:last-child {
+      color: purple;
+    }
+    /* 순서를 마지막부터 확인 */
+    ul li:nth-last-child(2) {
+      color: blue;
+    }
+    /* 자식요소 중 첫번째 인지 확인 */
+    .brandList div:nth-child(1) {
+      color: red;
+    }
+    input:required {
+      border: 1px solid red;
+    }
+    .parent {
+      margin-top: 50px;
+    }
+    .parent::after {
+      content:"::after 하나의 요소이다. 코드를 넣어서 가상의 요소 만들기!";
+      color: red;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>첫번째</li>
+    <li>두번째</li>
+    <li>세번째</li>
+    <li>네번째</li>
+    <li>다섯번째</li>
+    <li>여섯번째</li>
+    <li>일곱번째</li>
+    <li>여덟번째</li>
+  </ul>
+  
+  <div class="brandList">
+    <p>p태그</p>
+    <div>카카</div>
+    <div>솔밤</div>
+    <div>노랑</div>
+  </div>
+
+  <div class="parent">부모 요소!! </div>
+</body>
+</html>

@@ -82,3 +82,40 @@ a태그들 사이를 띄어주려면
 line-heiht로 높이 여백의 가운데로 이동
 text-align: center; 각자 가운데로 이동
 
+-------
+@@@background
+
+키워드!! red, yellow 등 rgb 설정하지 않아도 이미 설정되어있는 것
+background-size: contain; 사진이 찌그러지지 않는 선에서 가장 크게 표현
+background-repeat: no-repeat; 반복 금지, 기본값: 꽉 채울 때까지 반복 repeat-x; repeat-y;
+                   round; 공간 늘어나면 이미지도 늘어남.
+                   space; 이미지가 잘리지 않을만큼만 반복, 나머지 빈 공간
+                   -> 상위요소에 크기가 지정되어있으면 제대로 작동 X
+background-position: center center; x, y 순으로 키워드로 지정해줌
+                     200px 50px; x, y 순으로 길이를 지정하여 배경이미지 이동
+                     50%; 요소의 길이에 대해 퍼센트로 지정
+                     offset 값을 지정한 요소 가장위,가장왼쪽 꼭지점이 offset 값에 맞게 위치한다.
+                           상대주소이기 때문에 기준이 필요하다.
+background-origin: content-box; padding-box; border-box; 배경이 ~영역에서 시작
+background-clip: content-box; padding-box; border-box; 배경색의 지정범위 설정
+background-attachment: scroll; local; fixed; 배경을 고정하는 방식
+                     fixed: 배경에 고정되어 있음. **헷갈리기 쉬울듯
+
+
+inline: 줄을 바꾸지 않고 다른 요소와 함께 한 행에 위치하려는 성향
+block: 그 자체로 한 줄을 완전히 차지
+inline-block: 브라우저 너비를 채우고 알맞게 줄바꿈
+
+margin: auto; 중앙에 배치. 좌우 여백 균등하게 배분됨.
+-=-----------------------------------------------------
+@@@selector
+부모 자식 후손 태그의 차이점~
+>  자식만 적용할 수 있도록 해준다. (후손은 안해줌 .)
++ 
+~ 선택자 다음 것들만 골라내 적용
+
+
+코드를 넣어서 가상의 요소 만들기!
+css_selector_3.html
+::after 마지막 요소로 추가됨
+::before 첫번째 요소로 추가됨

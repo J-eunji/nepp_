@@ -1,0 +1,19 @@
+li.orange.bold {
+  font-weight: 700;
+}
+
+.orange#big {
+  font-size: 32px;
+}
+
+.orange {
+  color: orange;
+}
+
+ul > li {
+  margin-top: 10px;
+}
+
+.target > div { /* 꺽쇠 : 바로 아래태그에만 적용 */
+  border: 1px solid #000
+}

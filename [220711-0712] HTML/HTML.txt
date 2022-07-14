@@ -5,3 +5,5 @@ HTML(Hyper Text Markup Language)
 Hyper Text: HTML 문서 내에서 다른 문서 참조(reference)
  
 Mark up: 
+
+ul태그에는 보통 div를 쓰지 않는다.
