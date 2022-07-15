@@ -1,0 +1,34 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: palegoldenrod;
+  margin-bottom: 20px;
+}
+
+.box:hover {
+  width: 100px;
+  height: 100px;
+  background-color: powderblue;
+
+  transform: translateX(20px);
+
+  /* 속성값 변화 시간 지정 */
+  transition-duration: 0.5s;
+
+  /* 속성값 변화에 지연시간 지정 */
+  transition-delay: 500ms;
+
+  /* 속성값의 변화 속도 커브를 지정. */
+  transition-timing-function: ease-in;
+
+  /* transition을 적용하고 싶은 속성을 골라낸다 */
+  transition-property: background-color;
+
+  /* transition이 변화된 상태에서 지정하면 원래대로 돌아올 때 적용이 안됨. */
+  transition-duration: 1s;
+}
+
+.box:active {
+  transform: translateX(20px);
+  background-color: black;
+}

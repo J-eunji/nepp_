@@ -119,3 +119,14 @@ margin: auto; 중앙에 배치. 좌우 여백 균등하게 배분됨.
 css_selector_3.html
 ::after 마지막 요소로 추가됨
 ::before 첫번째 요소로 추가됨
+
+
+__________________________________________________________
+기능을 하나씩 추가한다고 생각해보기~..
+
+동그란 div => width, height, border-radius, background-color
+위치 고정 => position, bottom, right
+호버 => :hover, background-color, color
+호버 시 천천히 => transtion
+올라오는 애니메이션 => transform
+나타나는 => opacity

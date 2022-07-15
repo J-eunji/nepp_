@@ -1,0 +1,154 @@
+h1 {
+  position: relative;
+}
+
+.parents {
+  border: 1px solid black;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  box-sizing: border-box;
+}
+
+.container {
+  display: inline-block;
+
+  border: 1px solid black;
+  margin: auto 10px;
+  box-sizing: border-box;
+
+  /* 원근감. 값이 클수록 멀리서 보는 듯한 효과 */
+  perspective: 500px;
+  /* perspective-origin: bottom right; */
+}
+
+.box {
+  /* box */
+  width: 100px;
+  height: 100px;
+  background-color: #a1a1a1;
+  margin-bottom: 40px;
+
+  /* text */
+  text-align: center;
+  line-height: 100px;
+}
+
+h2 {
+  position: absolute;
+  top: 100px;
+}
+
+/* translateList box 클래스 중 첫번째 요소 */
+/* hover 마우스를 올리면 적용되는 것으로 구분 */
+.translateList .box:first-child:hover {
+  /* translate 맨 위, 왼쪽 모서리가 시작점 */
+  /* hover x축 20px 이동 */
+  transform: translateX(20px);
+}
+
+/* translateList box 클래스 중 두번째 요소 */
+.translateList .box:nth-child(2):hover {
+  /* hover y축 20px 이동 */
+  transform: translateY(20px);
+}
+
+/* translateList box 클래스 중 세번째 요소 */
+.translateList .box:nth-child(3):hover {
+  /* hover x축 10px y축 10px 이동 */
+  transform: translate(10px, 10px);
+}
+
+/* translateList box 클래스 중 네번째 요소 */
+.translateList .box:last-child:hover {
+  /* hover z축  */
+  transform: translateZ(10px);
+  position: relative;
+}
+
+/* scaleList box 클래스 중 첫번째 요소 */
+.scaleList .box:first-child:hover {
+  /* hover x축 방향 1.1배 확대, 비율 입력 */
+  transform: scaleX(1.1);
+}
+
+/* scaleList box 클래스 중 첫번째 요소 */
+.scaleList .box:first-child:hover {
+  /* hover x축 방향 1.1배 확대, 비율 입력 */
+  /* scale은 컨텐츠(a, img, box 등)도 같이 확대,축소 */
+  transform: scaleX(1.1);
+}
+
+/* scaleList box 클래스 중 두번째 요소 */
+.scaleList .box:nth-child(2):hover {
+  /* hover y축 방향 90% 축소, 비율 입력 */
+  transform: scaleY(90%);
+}
+
+/* scaleList box 클래스 중 세번째 요소 */
+.scaleList .box:nth-child(3):hover {
+  /* 양수: 박스 늘리기,
+     음수: 박스 뒤집기 */
+  /* 음수 : 기본값 y축 방향 
+            값 2개 입력하면 마지막 값 적용 */
+  /* 양수 : 기본값 x축 방향
+            값 2개 입력하면 x축 y축 순서 */
+  /* 양수 음수값은 서로 다른 기능, 중첩사용 가능함. */
+  transform: scale(1.5, 3);
+  transform: scale(-1.5);
+}
+
+/* scaleList box 클래스 중 마지막 요소 */
+.scaleList .box:last-child:hover {
+  transform: scaleZ(20);
+}
+
+/* rotate */
+.rotateList .box:first-child:hover {
+  /* 시계방향으로 90도 회전 */
+  transform: rotate(90deg);
+}
+
+.rotateList .box:nth-child(2):hover {
+  /* origin: 변형되는 기준축 바꿈 */
+  transform-origin: bottom;
+  /* x축 회전 */
+  transform: rotateX (30deg);
+}
+
+.rotateList .box:last-child:hover {
+  transform-origin: left;
+  transform: rotateY(30deg);
+}
+
+/* skew */
+.skewList .box:first-child:hover {
+  /* x축 방향으로 기울임 */
+  transform: skewX(20deg);
+}
+
+.skewList .box:nth-child(2):hover {
+  /* y축 방향으로 기울임 */
+  transform: skewY(20deg);
+}
+
+.skewList .box:last-child:hover {
+  /*  */
+}
+
+.dice {
+  margin-top: 100px;
+  perspective-origin: top;
+}
+
+.surface {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+}
+
+.surface:firtst-child {
+  transform-origin: top;
+  transform: rotateX(-30deg);
+}

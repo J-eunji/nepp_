@@ -1,0 +1,53 @@
+.container {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: gray;
+}
+
+.container .box {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+
+  /* 실행하려는 애니메이션 이름 지정 */
+  animation-name: slideDown;
+  /* 애니메이션 실행되는 시간 지정 */
+  animation-duration: 2s;
+  /* 애니메이션이 시작되는 시간 지정 */
+  animation-delay: 1s;
+  /* lenear 일정한 속도 */
+  animation-timing-function: linear;
+  /* 애니메이션 반복 횟수 */
+  animation-iteration-count: 1;
+  /* 애니메이션 재생 방향 */
+  animation-direction: alternate;
+  /* 애니메이션이 끝나는 시점에서 멈춤 */
+  animation-fill-mode: both;
+}
+
+/* 값의 변화 작성 */
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    background-color: powderblue;
+  }
+  to {
+    transform: translateY(50px) scale(1.1);
+    background-color: palegoldenrod;
+    /* background-color: blue; */
+  }
+}
+
+/* keyframe을 여러개 적용하여 지점마다 변화 작성 */
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

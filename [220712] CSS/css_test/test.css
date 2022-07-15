@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.clearFix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  background-color: #e8e8e8;
+  text-align: center;
+  font-size: 0;
+}
+
+/* 전체 */
+header .gnbList {
+  height: 36px;
+  font-size: 16px;
+  background-color: powderblue;
+  display: inline-block;
+  /* 넘치는 부분을 안 보이게 해줌 */
+  overflow: hidden;
+  /* 기본값 all */
+  transition: 0.25s;
+}
+
+header .gnbList:hover {
+  height: 150px;
+}
+
+/* HTML 등 제목 */
+header .gnbList .depth01 {
+  float: left;
+}
+
+/* 하위메뉴 */
+header .gnbList .depth01 a {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 0;
+}
+
+header .gnbList .depth01 a:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+/* 메뉴상단 클릭 시 글씨색 바꿔줌 */
+header .gnbList > li > a:active {
+  color: #b2b2b2;
+}
+
+/* 배너 */
+
+.container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  width: auto;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.box {
+  display: inline-block;
+
+  width: 150px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  text-decoration: none;
+}
+
+.box:hover {
+  background-size: 110% auto;
+  color: black;
+  transition: 0.25s;
+}
+
+.container .box:first-child {
+  background-image: url(./ham.jpg);
+}
+
+.container .box:nth-child(2) {
+  background-image: url(./kaka.png);
+}
+
+.container .box:nth-child(3) {
+  background-image: url(./cat.jpg);
+}
+
+/* 채팅상담 버튼 */
+.chat {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  border: 3px solid #000;
+  animation-name: slideUp, fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.chat:hover {
+  background-color: white;
+  color: black;
+  transition: 0.25s;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideUp02 {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
