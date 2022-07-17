@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        /* 원근감. 값이 클수록 멀리서 보는 듯한 효과 */
+        perspective: 500px;
+        /* perspective-origin: bottom right; */
+      }
+      .dice {
+        margin-top: 100px;
+        perspective-origin: left bottom;
+        padding: 30px;
+      }
+      .surface {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 0, 0, 0.4);
+        position: absolute;
+      }
+
+      .surface:first-child {
+        background-color: rgba(255, 0, 0, 0.4);
+        transform-origin: top;
+        transform: rotateX(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>dice</h2>
+    <div class="container dice">
+      <div class="surface"></div>
+      <div class="surface"></div>
+      <div class="surface"></div>
+    </div>
+  </body>
+</html>

@@ -7,3 +7,93 @@ Hyper Text: HTML 문서 내에서 다른 문서 참조(reference)
 Mark up: 
 
 ul태그에는 보통 div를 쓰지 않는다.
+
+참조링크
+https://www.nextree.co.kr/p8428/
+
+-----------------------------------------------------------
+
+***form
+
+*method: 폼을 서버에 전송할 http 메소드 정하기
+-post: 폼 데이터를 별도로 첨부하여 서버로 전달하는 방식
+(보안성 get보다 좋음, 길이제한X)
+-get: URL에 폼 데이터를 추가하여 서버로 전달하는 방식
+(보안성 취약, 쿼리 문자열에 포함됨, 길이제한O)
+
+*validate
+유효성 검증 건너뛰기(양식 맞지 않아도 가능)
+ex) 이메일 양식을 지키지 않아도 가능하도록,
+개발 단계에서 검증할 때 사용하는 경우가 많음.
+
+*autocomplete(기본)
+자동완성 기능, 끄려면 ="off"
+
+*target
+target="_blank" 새 탭에서 열기
+
+*name
+폼을 식별하기 위한 이름 지정
+
+*caption
+제목
+
+*autofocus : 페이지가 로드될 때 자동으로 포커스(focus)가 <input> 요소로 이동됨
+
+-----------------------------------------------------------
+
+***input
+
+*type
+-radio : name 설정으로 중복선택 여부 정할 수 있음. ex) gender
+-checkbox : 보통 중복 선택할 때 사용되는 버튼 ex) interest
+-number
+-text
+-file
+
+*placeholder : 미리보기
+*value : 값 입력
+*id : 이름 설정
+
+boolean (기본적으로 false, 사용하면 true 기본 설정)
+*readonly : 읽기 전용
+*required : 필수값 입력 체크
+
+-----------------------------------------------------------
+
+table row (행)
+table column (열)
+
+tr(table row): 행을 만드는 태그(가로로 행이 하나 생긴다.)
+td(table body): 셀을 만드는 태그(칸 하나를 만든다.)
+th(table header): 제목 행에 셀을 만들 때 사용(제목 전용이다.)
+tf(table foot): 요약하는 마지막 부분
+
+*span은 시작하는 행 맨 앞에 tr 안에 써야 값이 제대로 지정된다.
+rowspan : 행 합침
+colspan : 열 합침
+
+background: color;  => 태그/줄마다 적용 가능
+(ex style="background: color")
+
+
+-----------------------------------------------------------
+
+오디오
+muted
+loop
+controls
+autoplay
+
+사진
+alt
+width
+
+비디오
+video
+iframe(보안성 취약)
+* 코덱 : MP4, WebM, OGV
+비디오 코덱 MP4 H.264
+오디오 코덱 AAC or MP3
+
+
