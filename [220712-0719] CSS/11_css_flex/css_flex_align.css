@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  width: 500px;
+  height: 300px;
+  border: 3px solid lightblue;
+
+  /* 주축 */
+  /* start 맨 앞에 모음
+  end 맨 끝에 모음 */
+  justify-content: flex-end;
+  /* center 가운데로 모음 */
+  justify-content: center;
+  /* 양 끝에 붙임 */
+  justify-content: space-between;
+  /* around 박스 사이의 공간을 똑같이 */
+  justify-content: space-around;
+  /* evenly 모든 여백 공간을 똑같이 */
+  justify-content: space-evenly;
+
+  /* align 교차축을 결정함. */
+  /* flex-end 주축: 맨 밑 */
+  align-items: flex-end;
+  /* center 주축: 정 가운데 */
+  align-items: center;
+}
+
+.box {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  background-color: pink;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:nth-child(1) {
+  align-self: flex-end;
+}

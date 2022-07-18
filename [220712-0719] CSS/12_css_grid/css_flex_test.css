@@ -1,0 +1,122 @@
+header {
+  display: flex;
+  width: auto;
+  height: 100px;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+header h1 {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(218, 154, 154);
+}
+
+h1 a {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.menuList {
+  display: flex;
+  width: auto;
+  z-index: 1;
+}
+
+.menu {
+  width: 200px;
+  height: 50px;
+
+  background-color: rgb(154, 218, 154);
+
+  overflow: hidden;
+}
+
+.menu a {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.menu:hover {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(154, 218, 154);
+  transition-duration: 0.5s;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 200px;
+}
+
+.loginContainer button {
+  width: 100px;
+  height: 50px;
+  padding: 0;
+
+  font-size: 25px;
+  text-align: center;
+  line-height: 50px;
+
+  cursor: pointer;
+}
+
+/* 배너 */
+
+.imgContainer ul {
+  width: 650px;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.imgBox {
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 200px;
+  height: 300px;
+  box-sizing: border-box;
+
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+
+.imgBox:hover {
+  background-size: auto 110%;
+  transition-duration: 0.5s;
+}
+
+.imgBox a {
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 300px;
+}
+
+.imgBox a:hover {
+  color: red;
+}
+
+.imgBox:nth-child(1) {
+  background-image: url(./ham.jpg);
+}
+
+.imgBox:nth-child(2) {
+  background-image: url(./kaka.jpg);
+}
+
+.imgBox:nth-child(3) {
+  background-image: url(./cat.jpg);
+}

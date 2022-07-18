@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  width: 400px;
+  height: 400px;
+  /* fr로 비율 지정 */
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "header header header"
+    "sidebar main main"
+    "footer footer footer";
+  gap: 10px;
+}
+
+header {
+  grid-area: header;
+  background-color: lightblue;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: lightcoral;
+}
+
+main {
+  grid-area: main;
+  background-color: lightgreen;
+}
+
+footer {
+  grid-area: footer;
+  background-color: lightslategray;
+}

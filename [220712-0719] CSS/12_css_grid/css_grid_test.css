@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+  grid-template-rows: 40px 1fr 100px;
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.container header {
+  background: lightblue;
+  grid-area: header;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  position: relative;
+}
+
+.container header h1 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container #gnb .gnbList {
+  display: flex;
+}
+
+aside {
+  background: lightsalmon;
+  grid-area: aside;
+}
+
+main {
+  background: lightseagreen;
+  grid-area: main;
+}
+
+footer {
+  background: lightgoldenrodyellow;
+  grid-area: footer;
+}

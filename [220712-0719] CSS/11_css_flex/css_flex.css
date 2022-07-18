@@ -1,3 +1,7 @@
+.p {
+  margin: 0;
+}
+
 .container {
   display: flex;
   /* 교차축 나열: 기본값 */
@@ -7,15 +11,52 @@
   /* 교차축 거꾸로 나열 */
   /* flex-direction: row-reverse; */
 
-  width: 500px;
-  height: 300px;
+  /* 기본값: 줄바꿈X */
+  /* flex-wrap: nowrap; */
+  /* 컨테이너 영역 넘는 요소를 줄바꿈 */
+  /* flex-wrap: wrap; */
+  /* 줄바꿈, 반대방향으로 배치
+  ex)맨 윗층이 맨 아랫층으로 */
+  flex-wrap: wrap-reverse;
+  /* flex-direction과 flex-wrap의 축약형 */
+  flex-flow: row nowrap;
+
+  width: 800px;
+  height: 500px;
   border: 3px solid palevioletred;
 }
 
 .box {
-  width: 100px;
-  height: 100px;
+  /* 높이와 너비를 지정하지 않으면
+  box가 글자만큼만 자리를 차지
+  지정하면 box 크기만큼만 보임.*/
+  /* css는 기본적으로 단어를 깨뜨리지 않는다. */
+  /* width: 200px; */
+  /* height: 100px; */
+  /* 주축방향의 기본 크기를 정함 */
+  flex-basis: 100px;
+  /* basis:0 grow값 똑같으면 컨텐츠 너비 상관없이 똑같이 공간을 나눈다 */
+  /* 단, 아이템의 컨텐츠 너비가 여백을 나눠가졌을 떄의 너비보다 커지면 소용없다. */
+  /* 여백이 부족할 때 아이템의 크기를 조절 */
+  flex-shrink: 1;
+  flex: 1;
+
   background: black;
   color: white;
   margin: 5px;
+}
+
+.box:nth-child(1) {
+  /* 여백이 남을 때 아이템의 크기를 조절 */
+  flex-grow: 2;
+}
+
+.box:nth-child(2) {
+  /* basis 기본값은 auto, 글씨크기만큼만
+  basis값을 주고 grow값을 줘야한다. */
+  flex-basis: 100px;
+  flex-shrink: 2;
+  /* grow2 shrink1 basisauto
+  여백이 남으면 2만큼 가져간다 */
+  flex: 2;
 }
