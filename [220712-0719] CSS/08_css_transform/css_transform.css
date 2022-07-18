@@ -2,10 +2,19 @@ body {
   padding-bottom: 200px;
 }
 
+.parents {
+  display: flex;
+  justify-content: space-around;
+}
+
 .container {
   /* 원근감. 값이 클수록 멀리서 보는 듯한 효과 */
   perspective: 500px;
   /* perspective-origin: bottom right; */
+}
+
+.border {
+  border: 2px black 
 }
 
 .box {
@@ -15,6 +24,7 @@ body {
   text-align: center;
   line-height: 100px;
 }
+
 .box + .box {
   margin-top: 20px;
 }
@@ -72,7 +82,8 @@ body {
 
 /* scaleList box 클래스 중 마지막 요소 */
 .scaleList .box:last-child:hover {
-  transform: scaleZ(-2);
+  transform-origin: bottom;
+  transform: scaleZ(-2.0);
 }
 
 /* rotate */
@@ -84,7 +95,7 @@ body {
 .rotateList .box:nth-child(2):hover {
   /* origin: 변형되는 기준축 바꿈 */
   /* x축 회전 */
-  transform: rotateX (180deg);
+  transform: rotateX(180deg);
 }
 
 .rotateList .box:last-child:hover {
