@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  /* 교차축 나열: 기본값 */
+  flex-direction: row;
+  /* 주축 나열 */
+  /* flex-direction: column; */
+  /* 교차축 거꾸로 나열 */
+  /* flex-direction: row-reverse; */
+
+  width: 500px;
+  height: 300px;
+  border: 3px solid palevioletred;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: black;
+  color: white;
+  margin: 5px;
+}
