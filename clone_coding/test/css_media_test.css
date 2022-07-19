@@ -1,0 +1,12 @@
+/*width가 800px 이하일 때 */
+
+@media (max-width: 800px) {
+  header .menuList {
+    display: block;
+    width: auto;
+  }
+  header .menuList {
+    height: 50px;
+    overflow: hidden;
+  }
+}

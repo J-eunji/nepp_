@@ -1,8 +1,14 @@
+/* @import url(./css_media_test.css); */
+
 header {
   display: flex;
   width: auto;
   height: 100px;
   justify-content: space-between;
+}
+
+header .loginContainer .btnHome {
+  cursor: pointer;
 }
 
 a {
@@ -59,7 +65,7 @@ h1 a {
   width: 200px;
 }
 
-.loginContainer button {
+.loginContainer i {
   width: 100px;
   height: 50px;
   padding: 0;
@@ -98,11 +104,14 @@ h1 a {
 }
 
 .imgBox a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   font-size: 30px;
   text-decoration: none;
   text-align: center;
-  line-height: 300px;
 }
 
 .imgBox a:hover {
@@ -119,4 +128,51 @@ h1 a {
 
 .imgBox:nth-child(3) {
   background-image: url(./cat.jpg);
+}
+
+/* 채팅상담 버튼 */
+.chat {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  border: 3px solid #000;
+  animation-name: slideUp, fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.chat:hover {
+  background-color: white;
+  color: black;
+  transition: 0.25s;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideUp02 {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
