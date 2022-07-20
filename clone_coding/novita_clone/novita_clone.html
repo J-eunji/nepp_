@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -15,26 +15,26 @@
   <body>
     <header>
       <!-- 로고 -->
-      <h1>
-        <a class="logo" href="https://novita.co.kr/main"></a>
+      <h1 id="logo">
+        <a href="https://novita.co.kr/main">Novita</a>
       </h1>
       <!-- 메인메뉴 -->
       <ul class="mainmenu">
         <li class="menuList">
           <a href="">NOVITA</a>
-          <ul>
+          <!-- <ul class="subMenu">
             <li><a href="">노비타 이노베이션</a></li>
             <li><a href="">노비타 광고</a></li>
             <li><a href="">회사소개</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li class="menuList">
           <a href="">PRODUCT</a>
-          <ul>
+          <!-- <ul>
             <li><a href="">BEST&NEW</a></li>
             <li>
               <a href="">비데</a>
-              <ul>
+              <ul class="subMenu">
                 <li><a href="">- 살균비데</a></li>
                 <li><a href="">- 회전노즐 비데</a></li>
                 <li><a href="">- 방수 비데</a></li>
@@ -44,26 +44,26 @@
             </li>
             <li><a href="">악세사리</a></li>
             <li><a href="">내게 맞는 비데 찾기</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li class="menuList">
           <a href="">SERVICE</a>
-          <ul>
+          <!-- <ul class="subMenu">
             <li><a href="">닥터클린 서비스</a></li>
             <li><a href="">설치 서비스</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li class="menuList">
           <a href="">EVENT</a>
-          <ul>
+          <!-- <ul class="subMenu">
             <li><a href="">노비타 클럽</a></li>
             <li><a href="">노비타 LIVE</a></li>
             <li><a href="">이벤트</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li class="menuList">
           <a href="">CUSTOMER CENTER</a>
-          <ul>
+          <!-- <ul class="subMenu">
             <li><a href="">AS신청</a></li>
             <li><a href="">공지사항</a></li>
             <li><a href="">FAQ</a></li>
@@ -71,17 +71,39 @@
             <li><a href="">제품 등록</a></li>
             <li><a href="">대리점</a></li>
             <li><a href="">사용 설명서</a></li>
-          </ul>
+          </ul> -->
         </li>
       </ul>
       <!-- 로그인 카트 검색 -->
       <ul class="rightHeader">
         <li><a href="">Login</a></li>
-        <li><a href="">Cart</a></li>
+        <li>
+          <a href="">Cart<strong>0</strong></a>
+        </li>
         <li>
           <a href="">Search<i class="xi-search"></i></a>
         </li>
       </ul>
     </header>
+    <main>
+      <div class="mainVisual">
+        <div class="videoBox">
+          <video
+            src="https://cdn-www.novita.co.kr/main/main_key1.mp4"
+            muted="muted"
+            autoplay
+            loop
+          ></video>
+        </div>
+        <div class="textBox">
+          <h3>Think Better!</h3>
+          <p>전해수로 99% 깨끗하게</p>
+          <p>유로부터 노즐, 도기까지 3단계로 하루 한 번 자동살균!</p>
+        </div>
+        <div class="btnChat">
+          <button></button>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
