@@ -173,3 +173,20 @@ console.log(sumSub02(10, 10, callback));
 //   return result;
 // }
 // console.log(repeatCal(5, 10, sumNum));
+
+// 콜백함수 개념 이해하기,,,
+let user = {
+  greeting: function (func) {
+    console.log("시작");
+    func(1);
+    console.log("끝");
+  },
+};
+
+user.greeting(function (num) {
+  console.log("저는 콜백함수입니다." + num);
+});
+
+user.greeting(function () {
+  console.log("저는 두번째 콜백함수입니다.");
+});
