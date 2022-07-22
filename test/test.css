@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+a,
+i,
+button {
+  color: white;
+  cursor: pointer;
+}
+
+header {
+  z-index: 5;
+  position: relative;
+}
+
+header .gnbList {
+  width: auto;
+  height: 50px;
+  background-color: lightblue;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  overflow: hidden;
+
+  z-index: 5;
+}
+
+/* 헤더 호버 */
+header .gnbList:hover {
+  width: auto;
+  height: 250px;
+  transition-duration: 0.5s;
+}
+
+/* 로고 */
+header .gnbList h1 i {
+  padding: 10px 30px;
+  color: white;
+  font-size: 30px;
+}
+
+/* 메뉴 */
+.mainMenu {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+}
+
+header .menuList {
+  background-color: rgb(146, 210, 231);
+}
+
+header .menuList a {
+  font-size: 20px;
+  line-height: 50px;
+  color: white;
+  padding: 20px 50px;
+}
+
+/* 하위메뉴 */
+header .menuList .subMenuList {
+  background-color: rgb(161, 220, 236);
+  margin: 0px;
+}
+
+/* 햄버거 */
+header button {
+  color: white;
+  font-size: 35px;
+  padding: 8px 30px;
+  border: none;
+  background: none;
+}
+
+/* 슬라이더 이미지 */
+.sliderImg {
+  z-index: 1;
+
+  position: absolute;
+  top: 50px;
+
+  width: 1536px;
+  height: 400px;
+
+  background-image: url(./sliderimg.jpg);
+  background-position: -100px -180px;
+}
+
+/* 3개 이미지 */
+
+/* 전체 > 3개를 감싸는 컨테이너 위치*/
+.subImgList {
+  position: fixed;
+  top: 480px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  display: inline-block;
+  width: 600px;
+  height: 220px;
+}
+
+/* 컨테이너 안에서의 3개 이미지 위치 */
+.subImgList .subImg {
+  display: flex;
+  justify-content: space-around;
+}
+
+.subImgList .subImg li {
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+  width: 33%;
+  height: 220px;
+  color: white;
+
+  text-align: center;
+  line-height: 220px;
+}
+
+.subImgList .subImg li:hover {
+  background-size: auto 110%;
+  transition-duration: 0.5s;
+}
+
+.subImgList .subImg .dog {
+  background-image: url(./kaka.jpg);
+}
+
+.subImgList .subImg .cat {
+  background-image: url(./cat.jpg);
+}
+
+.subImgList .subImg .ham {
+  background-image: url(./ham.jpg);
+}
+
+footer button {
+  border: none;
+  background-color: lightblue;
+
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  animation: fadeUp 0.7s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
