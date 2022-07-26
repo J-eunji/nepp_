@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_dynamic</title>
+    <style>
+      .container {
+        width: 400px;
+        height: 300px;
+        border: 5px solid red;
+      }
+      .container .box {
+        width: 100px;
+        height: 100px;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>저는 p태그입니다.</p>
+    </div>
+    <script>
+      // 선언
+      let container = document.querySelector(".container");
+      // div태그의 요소 노드 생성
+      let divEelem = document.createElement("div");
+      // 텍스트 노드 생성
+      let textNode = document.createTextNode("div태그 생성");
+      // div 요소노드의 자식노드로 텍스트노드 추가
+      divEelem.appendChild(textNode);
+      // class 속성 노드 생성
+      let classAttr = document.createAttribute("class");
+      // class 속성에 box 할당
+      classAttr.value = "box";
+      // 속성 노드 설정
+      divEelem.setAttributeNode(classAttr);
+      // div요소노드를 container의 자식노드로 추가
+      container.appendChild(divEelem);
+      // 부모요소가 모를 때 삭제
+      divEelem.addEventListener("click", function (e) {
+        let parent = e.target.parentNode;
+        parent.removeChild(e.target);
+      });
+      // 삭제
+      // container.removeChild(divEelem);
+
+      // setAttribue("속성이름", 속성값);
+      // container.setAttribute("class", "on");
+
+      // p태그 안에 있는 텍스트 노드를 참조
+      let pElem = container.querySelector("p");
+      console.log(pElem.innerText);
+      // p태그 안의 텍스트 노드의 내용 갱신(문자열)
+      pElem.innerText = "변경!";
+
+      // container안의 html 요소들 참조
+      console.log(container.innerHTML);
+      /// container 안의 html 요소들을 갱신 (업데이트)
+      container.innerHTML = "<div>div태그 추가</div>";
+      // += 연산자로 기존내용 수정하지 않고 추가.
+      container.innerHTML += "<div>div태그 추가!</div>";
+
+      // for (let i = 0; i < 1000; i++) {
+      //   // 성능 구림
+      //   // container.innerHTML += "<div class = 'box'>div태그 추가</div>";
+      //   // 속도가 더 빠름
+      //   // str 변수에 먼저 문자열의 형태로 더해준 후 마지막에 innerHTML
+      //   let str = "";
+      //   for (let i = 0;) {}
+      // }
+    </script>
+  </body>
+</html>

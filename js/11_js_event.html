@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .box {
+        width: 200px;
+        height: 300px;
+        background: black;
+      }
+      .container {
+        width: 500px;
+        height: 300px;
+        padding: 20px;
+        border: 3px solid red;
+      }
+      .container .inner {
+        padding: 20px;
+        border: 3px solid blue;
+      }
+
+      .container .inner p {
+        padding: 20px;
+        border: 3px solid yellow;
+      }
+    </style>
+    <title>js_event</title>
+  </head>
+  <body>
+    <!-- 인라인 방식 이벤트 리스너 등록 , 잘 사용되지 X -->
+    <!-- <div class="box" onclick="this.style.backgroundColor='red'"></div> -->
+    <div class="box"></div>
+    <!-- 이벤트는 자식요소로부터 상위요소 전파(버블링) -->
+    <div class="container" onclick="alert('container')">
+      container입니다
+      <div class="inner" onclick="alert('inner')">
+        inner입니다
+        <p onclick="alert('p')">p태그입니다</p>
+      </div>
+    </div>
+    <script>
+      let box = document.querySelector(".box");
+      box.onclick = function () {
+        box.style.backgroundColor = "red";
+      };
+      // 같은 이벤트에 콜백함수 재할당시 덮어씌운다.
+      box.onclick = function () {
+        alert("클릭!");
+      };
+      // 요소.addEventListener("처리할 이벤트", 콜백함수)
+      // 요소에 이벤트 리스너를 더한다 => 중복 적용가능
+      box.addEventListener("click", function () {
+        box.style.border = "3px solid red";
+      });
+      box.addEventListener("click", function () {
+        box.style.backgroundColor = "blue";
+      });
+
+      // 요소.removeEventListener("처리할 이벤트", 삭제할 콜백함수)
+      // 성능 최적화 목적
+      box.addEventListener("click", consoleClick);
+      // box.removeEventListener("click", consoleClick);
+      function consoleClick() {
+        alert("클릭했습니다.");
+        // 한 번 실행 후 이벤트 삭제
+        box.removeEventListener("click", consoleClick);
+      }
+      // Event.currentTarget : 이벤트 리스너가 등록된 요소
+      // Event.target : 실제 이벤트가 발생한 요소
+      let container = document.querySelector(".container");
+      container.addEventListener("click", function (event) {
+        console.log("e.target: ", event.target);
+        console.log("e.currentTarget: ", event.currentTarget);
+        console.log("클릭");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js_delegate</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      .container {
+        width: 100vh;
+        height: auto;
+        border: 3px solid red;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        border: 3px solid black;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+    <button>생성</button>
+    <script>
+      let container = document.querySelector(".container");
+      let boxList = document.querySelectorAll(".box");
+      let button = document.querySelector("button");
+
+      // 창 띄우기 이벤트
+      container.addEventListener("click", function (e) {
+        // 이벤트 위임: 이벤트를 상위요소에 위임, 버블링 이용한 것
+        // if 클릭한 타겟이 컨테이너 박스와 같은 것인지? true -> click창 띄우기
+        if (e.target.matches(".container .box")) alert("click");
+      });
+
+      // 박스 늘리기 이벤트
+      button.addEventListener("click", function () {
+        // innerHTML은 모든 내용을 치우고 다시 새로 생성함.
+        // container.innerHTML += `<div class="box"></div>`;
+        // div요소 만들기
+        let divElem = document.createElement("div");
+        // 클래스리스트에 box 추가
+        divElem.classList.add("box");
+        // divElem.addEventListener("click", function () {
+        //   alert("click");
+        // });
+        container.appendChild(divElem);
+      });
+    </script>
+  </body>
+</html>

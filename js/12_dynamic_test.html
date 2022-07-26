@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <div class="todoList"></div>
+    <script>
+      let textInput = document.querySelector("input");
+      let todoList = document.querySelector(".todoList");
+      textInput.addEventListener("keydown", function (e) {
+        // e.target.value : e.target은 input 태그, input태그의 value, 즉 input 태그의 값
+        console.log(e.target.value);
+        // e.key : 누르고 있는 키의 이름
+        console.log(e.key);
+        // enter 키를 누를 때
+        if (e.key === "Enter") {
+          // text에 값을 할당
+          let text = e.target.value;
+          // input에 쓴거 리셋
+          e.target.value = "";
+          console.log(text);
+          // todoList에 문자 사용하기
+          todoList.innerHTML += `<p>${text}</p>`;
+        }
+      });
+    </script>
+  </body>
+</html>

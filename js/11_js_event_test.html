@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .changeBox {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="changeBox"></div>
+    <div class="btnList">
+      <button>빨강</button>
+      <button>파랑</button>
+      <button>초록</button>
+      <button>노랑</button>
+    </div>
+    <script>
+      // 문제 빨간색, 파란색, 초록색, 노란색 버튼 클릭시 박스의 색상 변경
+      // 클릭(이벤트)을 했을 때 색상 변경(요소 노드)
+      let changeBox = document.querySelector(".changeBox");
+      let btnList = document.querySelectorAll("button");
+      console.log(btnList);
+      btnList[0].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "red";
+      });
+      btnList[1].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "blue";
+      });
+      btnList[2].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "green";
+      });
+      btnList[3].addEventListener("click", function () {
+        changeBox.style.backgroundColor = "yellow";
+      });
+    </script>
+  </body>
+</html>

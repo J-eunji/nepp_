@@ -126,7 +126,8 @@ console.log(sumString("안녕하세요. ", "저는 카카입니다."));
 let sumstring = (str1, str2) => str1 + str2;
 console.log(sumstring("안녕하세요. ", "저는 카카입니다."));
 
-// 콜백함수: 함수의 인자로 전달된 함수
+// 콜백함수: 함수의 매개변수로 들어가는 함수
+// 순차적으로 실행하고 싶을 때 씀.
 // JS의 함수는 일급객체라서 가능
 
 function consoleNum(num) {
@@ -153,10 +154,10 @@ let sub02 = (num3, num4) => num3 - num4;
 
 let callback = (num, num2) => num + num2;
 
-function sumSub02(n, startNum, total) {
+function sumSub02(n, startNum, callback) {
   let sum = startNum;
   for (i = 1; i <= n; i++) {
-    sum = total(sum, i);
+    sum = callback(sum, i);
   }
   return sum;
 }
@@ -183,9 +184,11 @@ let user = {
   },
 };
 
-user.greeting(function (num) {
-  console.log("저는 콜백함수입니다." + num);
-});
+function callback1(num) {
+  console.log("저는 콜백함수입니다." + num + num);
+}
+
+user.greeting(callback1);
 
 user.greeting(function () {
   console.log("저는 두번째 콜백함수입니다.");
