@@ -17,7 +17,6 @@ let pagination = document.querySelector(".pagination");
 let slideWrapper = document.querySelector(".slideContainer ul");
 let slideImgList = document.querySelectorAll(".slideContainer .slideImg");
 let slideImgLength = slideImgList.length;
-console.log(pagination);
 
 //늘린 슬라이드 부모너비 계산
 slideWrapper.style.width = 100 * slideImgList.length + "vw";
