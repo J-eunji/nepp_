@@ -87,3 +87,17 @@ for (i = 0; i < numbers.length; i++) {
   }
 }
 console.log(numbersEven);
+
+// concat() : 배열 2개 합쳐서 새로운 배열 반환
+// 원본 배열은 그대로
+let first = [1, 2, 3, 4];
+let second = [5, 6, 7, 8];
+// push는 배열 맨 마지막 요소에 배열을 넣음
+// first.push(second);
+// console.log(first);
+
+let resultList = first.concat(second);
+// 원본 배열은 그대로
+console.log(first);
+// 새로운 배열 반환
+console.log(resultList);
