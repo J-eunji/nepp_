@@ -40,7 +40,7 @@
       divEelem.setAttributeNode(classAttr);
       // div요소노드를 container의 자식노드로 추가
       container.appendChild(divEelem);
-      // 부모요소가 모를 때 삭제
+      // 부모 노드로 부터 자식요소(자신)을 삭제
       divEelem.addEventListener("click", function (e) {
         let parent = e.target.parentNode;
         parent.removeChild(e.target);
@@ -57,6 +57,8 @@
       // p태그 안의 텍스트 노드의 내용 갱신(문자열)
       pElem.innerText = "변경!";
 
+      // innerHTML을 쓰면 안을 싹 비우고 다시 시작하기 때문에
+      // 위의 div 박스가 안 나온다.
       // container안의 html 요소들 참조
       console.log(container.innerHTML);
       /// container 안의 html 요소들을 갱신 (업데이트)

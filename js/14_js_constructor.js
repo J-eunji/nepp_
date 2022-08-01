@@ -167,7 +167,7 @@ class Player {
   }
   attack(target) {
     console.log(`${this.nickname}: 짖기!`);
-    target.getAttack();
+    target.getAttack(); // ${target} : 물기
   }
   getAttack() {
     console.log(`${this.nickname} : 물기!`);

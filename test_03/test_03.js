@@ -17,7 +17,6 @@ let pagination = document.querySelector(".pagination");
 let slideWrapper = document.querySelector(".slideContainer ul");
 let slideImgList = document.querySelectorAll(".slideContainer .slideImg");
 let slideImgLength = slideImgList.length;
-console.log(pagination);
 
 //늘린 슬라이드 부모너비 계산
 slideWrapper.style.width = 100 * slideImgList.length + "vw";
@@ -31,7 +30,7 @@ slideWrapper.style.width = 100 * slideImgList.length + "vw";
 // }
 
 slideImgList.forEach(function (_, i) {
-  let btnElem = document.createElement("div");
+  let btnElem = document.createElement("li");
   btnElem.className = "box";
   pagination.appendChild(btnElem);
 });
@@ -42,15 +41,35 @@ slideImgList.forEach(function (_, i) {
 
 //슬라이드 구현
 let btnSlideList = document.querySelectorAll(".pagination .box");
+let scale = document.querySelector(".pagination .box .scale");
 
-btnSlideList.forEach(function (btn, idx) {
+let interval = setInterval(slider, 2000);
+let i = 0;
+function slider() {
+  if (i === slideImgList.length) i = 0;
+  slideWrapper.style.transform = `translate(${i * -100}vw)`;
+  i++;
+  console.log(i);
+}
+
+btnSlideList.forEach((btn, idx) => {
+  btn.innerHTML = idx + 1;
   // translate는 왼쪽을 기준으로 움직인다.
   // 축을 기준으로 0, -100, -200 만큼 움직인다.
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", function (e) {
+    console.log(btn);
+    let parent = e.target.parentNode;
+    let liList = parent.querySelectorAll("li");
+    console.log("liList", liList);
+    liList.forEach((li) => {
+      li.classList.remove("scale");
+      console.log("removescale", li);
+    });
+    e.target.classList.add("scale");
+    console.log("etargetadd", btn);
     slideWrapper.style.transform = `translate(${idx * -100}vw)`;
   });
 });
-
 //모달창 닫기
 let modalBg = document.querySelector(".modalBg");
 let modal = document.querySelector(".modal");

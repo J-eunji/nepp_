@@ -48,6 +48,9 @@ let copy = {
 console.log(obj);
 console.log(copy);
 
+// ...배열이 몇 개인지 모를 때
+console.log(Math.max(...numArr));
+
 // 비구조화 할당 (destructuring)
 // 리액트에서 많이 씀
 // 함수의 리턴값을 여러 개 받을 때 유용함

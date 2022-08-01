@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#todoForm {
+  width: 300px;
+  height: 500px;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+#todoForm .inputBox {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.inputBox input {
+  flex: 1;
+  outline: none;
+  padding: 5px;
+}
+
+#todoForm .inputBox button {
+  background-color: transparent;
+  border-width: 1px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  cursor: pointer;
+}
+
+#todoForm .todoList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #b3b3b3;
+  cursor: pointer;
+}
+
+#todoForm .todoList .btnDel {
+  visibility: hidden;
+}
+
+#todoForm .todoList li:hover .btnDel {
+  visibility: visible;
+}
+
+.check {
+  opacity: 0.5;
+  text-decoration: line-through;
+}

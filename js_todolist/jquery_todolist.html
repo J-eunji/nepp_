@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css_reset.css">
+    <link rel="stylesheet" href="./todolist.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>jquery_todolist</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="todoForm">
+        <div class="inputBox">
+          <input type="text" />
+          <button>등록</button>
+        </div>
+        <ul class="todoList">
+          <!-- <li>
+            <!-- test
+            <div class="btnDel">
+              <i class="xi-trash"></i> -->
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </body>
+  <script>
+    $(".container").css("border", "1px solid gray");
+    $(".inputBox input").attr("readonly", false);
+    $(".inputBox button").css("cursor", "pointer");
+    $(".todoList li i").css("cursor", "pointer");
+    // 등록버튼 누르면
+    $(".inputBox button").click(function (e) {
+      e.preventDefault();
+      let todoText = $(".inputBox input").val();
+      $(".todoList").append(`<li>${todoText}<i class='xi-trash'></i></li>`);
+      $(".inputBox input").val("");
+    })
+    // 엔터 치면
+    $(".inputBox button").on("keypress", function (e) {
+      e.preventDefault();
+      if (e.key === "Enter") {
+        let todoText = $(".inputBox input").val();
+        $(".todoList").append(`<li>${todoText}<i class='xi-trash'></i></li>`);
+        $(".inputBox input").val("");
+      }
+    })
+    // 삭제버튼 누르면
+    $(".todoList li").click(function (e) {
+      if (e.target.matches = e.target) {
+        let check = $(".check");
+        $(".todoList li").toggleClass("check")
+        $(".todoList li i").parent().remove();
+      }
+    });
+
+
+
+
+  </script>
+</html>

@@ -59,17 +59,26 @@ header {
 
 /* 슬라이더 버튼 */
 .pagination {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 340px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .pagination .box {
+  display: inline-block;
   width: 10px;
   height: 10px;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
   margin: 0px 5px;
   cursor: pointer;
+}
+
+.pagination .scale {
+  width: 30px;
+  border-radius: 5px;
+  transition-duration: 0.2s;
 }
 
 .modalBg {
@@ -160,5 +169,8 @@ header {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #e8e8e8;
+  }
+  .pagination {
+    top: 330px;
   }
 }

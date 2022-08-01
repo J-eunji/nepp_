@@ -1,0 +1,163 @@
+$main_color: lightcoral;
+@mixin button($bg_color: #f2f2f2, $radius: 8px) {
+  display: inline-block;
+  padding: 5px 10px;
+  border: none;
+  border-radius: $radius;
+  background-color: $bg_color;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  padding: 0 20px;
+  #logo {
+    margin-right: 100px;
+  }
+  #gnb {
+    .gnbList {
+      display: flex;
+      li {
+        margin: 0 10px;
+        &:hover {
+          color: lightcoral;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+.btnSide {
+  display: block;
+}
+
+.slideContainer {
+  ul {
+    display: flex;
+    transition: 0.5s;
+    .slideImg {
+      width: 100vw;
+      height: 500px;
+      &:nth-child(1) {
+        background-color: lightblue;
+      }
+      &:nth-child(2) {
+        background-color: lightcoral;
+      }
+      &:nth-child(3) {
+        background-color: lightgoldenrodyellow;
+      }
+      &:nth-child(4) {
+        background-color: lightgreen;
+      }
+      &:nth-child(5) {
+        background-color: lightpink;
+      }
+    }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  button {
+    @include button(lightcyan, 4px);
+  }
+}
+.modalBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  .modal {
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    font-size: 20px;
+    .titleBox {
+      display: flex;
+      justify-content: space-between;
+      height: 50px;
+      padding: 10px;
+      border-bottom: gray 1px solid;
+      .btnClose {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+      }
+    }
+    .contentBox {
+      padding: 10px;
+    }
+  }
+}
+
+.hide {
+  height: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    #gnb {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition-delay: 0.4s;
+      z-index: 100;
+      .gnbList {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 100%;
+        transform: translate(200px);
+        transition-duration: 0.3s;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #fff;
+        li {
+          margin: 0px 10px;
+          a {
+            display: block;
+            padding: 0px 10px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #e8e8e8;
+          }
+        }
+      }
+    }
+  }
+}
+
+.on {
+  height: 100vh;
+  transition-delay: 0s;
+}

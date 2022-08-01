@@ -1,5 +1,6 @@
 let btnSide = document.querySelector(".btnSide");
 let gnb = document.querySelector("#gnb");
+
 btnSide.addEventListener("click", function () {
   gnb.classList.add("on");
 });

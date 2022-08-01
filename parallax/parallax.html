@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        height: 300vh;
+      }
+      .background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("./bg.jpg");
+        background-size: cover;
+        /* background-attachment: fixed */
+        background-position-y: -50px;
+        background-repeat: no-repeat;
+      }
+      .background .one {
+        width: 50%;
+        color: #fff;
+        font-size: 20px;
+      }
+      .main {
+        position: relative;
+        overflow: hidden;
+        height: 1000px;
+      }
+
+      .main p {
+        width: 500px;
+        position: absolute;
+        color: black;
+        z-index: 100;
+      }
+      .main .two {
+        font-size: 30px;
+        top: 200px;
+        left: -500px;
+      }
+      .main .three {
+        font-size: 50px;
+        text-align: end;
+        top: 500px;
+        right: -500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <p class="one">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
+        voluptate aspernatur autem at quas maxime pariatur nihil voluptatem
+        corrupti tempora deserunt quia, exercitationem voluptatum vero est
+        vitae, amet sunt eveniet? Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Aliquid nisi quidem soluta corporis inventore dolorem
+        atque ab iure, rem dignissimos esse aspernatur. Nobis modi dolores
+        inventore esse, laborum nulla iure. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Hic molestias eaque iusto autem explicabo
+        eum, obcaecati ducimus aspernatur non voluptas quaerat quam consectetur
+        ipsam sit officiis tempore illum delectus commodi? Lorem ipsum, dolor
+        sit amet consectetur adipisicing elit. Laudantium sed ipsam rerum at
+        iure soluta vitae earum similique non eos qui animi perferendis culpa
+        eaque, architecto provident labore! Quia, facere.
+      </p>
+    </div>
+    <div class="main">
+      <p class="two">강아지는 귀엽다.</p>
+      <p class="three">정말 귀엽다.</p>
+    </div>
+    <script>
+      let background = document.querySelector(".background");
+      let one = document.querySelector(".background .one");
+      let two = document.querySelector(".main .two");
+      let three = document.querySelector(".main .three");
+      let main = document.querySelector(".main");
+      window.addEventListener("scroll", function () {
+        background.style.backgroundPositionY = `${scrollY / 3}px`;
+        two.style.transform = `translate(${scrollY - main.offsetTop + 500}px)`;
+        three.style.transform = `translate(${-(
+          scrollY -
+          main.offsetTop +
+          500
+        )}px)`;
+      });
+    </script>
+  </body>
+</html>

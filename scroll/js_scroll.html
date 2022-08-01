@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js_scroll.js" defer></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 72px;
+        color: white;
+      }
+      section:nth-child(1) {
+        background-color: lightblue;
+      }
+      section:nth-child(2) {
+        background-color: lightpink;
+      }
+      section:nth-child(3) {
+        background-color: lightseagreen;
+      }
+      section:nth-child(4) {
+        background-color: lightgoldenrodyellow;
+      }
+      .btns {
+        position: fixed;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+      }
+      .btns .btnSec {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        margin: 20px auto; /*마진중첩*/
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.2);
+        color: white;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        /* 트랜지션 써야 버튼 커질 때 안 덜컹거리네. */
+        transition: 0.2s;
+      }
+      .btns .big {
+        /* 스케일을 써야 버튼 커질 때 안 덜컹 거리네 . */
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+      <section>4</section>
+    </div>
+    <div class="btns">
+      <div class="btnSec">1</div>
+      <div class="btnSec">2</div>
+      <div class="btnSec">3</div>
+      <div class="btnSec">4</div>
+    </div>
+  </body>
+</html>
