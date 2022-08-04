@@ -88,3 +88,6 @@ function UserList({ userList01, onRemove01, onToggle01 }) {
 export default UserList;
 
 // react는 이벤트위임을 자동 처리
+
+// 필요할 떄만 렌더링 일어남 => props 값이 변했을 때
+// export default React.memo(UserList)

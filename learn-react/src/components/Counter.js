@@ -9,15 +9,21 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [inputNum, setInputNum] = useState(0);
   function add() {
+    // 비동기적 작동 -> 일괄적 처리
     setCount(count + inputNum);
+    setCount(count + inputNum);
+    setCount(count + inputNum); // 1씩 증가
   }
   function sub() {
-    // 함수형 업데이트
+    // 함수형 업데이트: set 함수의 인자로 콜백함수 전달
     // 최적화 할 때 사용
-    // set 함수의 인자로 콜백함수를 전달하면
+    // set 함수의 인자로 콜백함수를 전달하면 콜백함수의
+    // 첫번째 인자로 최신 상태값을 전달
     // 콜백함수의 첫번째 인자로
     // 최신 상태값 전달
     setCount((count) => count - inputNum); // num 최신값 참조
+    setCount((count) => count - inputNum);
+    setCount((count) => count - inputNum); //3씩 감소
   }
   function onChangeInput(e) {
     let inputNum = parseInt(e.target.value);
