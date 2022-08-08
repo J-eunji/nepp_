@@ -7,7 +7,7 @@
 // import UserList from "./components/UserList";
 // import TrafficCard from "./components/TrafficCard";
 // import CounterReducer from "./components/CounterReducer";
-import WordChain from "./components/WordChain";
+import WordChain from "./components/08_WordChain";
 // import { useState, useRef } from "react";
 
 function App() {
