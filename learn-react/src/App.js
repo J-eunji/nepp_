@@ -7,11 +7,13 @@
 // import UserList from "./components/UserList";
 // import TrafficCard from "./components/TrafficCard";
 // import CounterReducer from "./components/CounterReducer";
-import WordChain from "./components/08_WordChain";
+// import WordChain from "./components/08_WordChain";
 // import { useState, useRef } from "react";
+import { Reset } from "styled-reset";
+import Accordian from "./accordian/Accordian";
 
 function App() {
-  return <WordChain />;
+  return <Accordian />;
 }
 
 export default App;
