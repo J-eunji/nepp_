@@ -2,7 +2,7 @@ import { Reset } from "styled-reset";
 import styled from "styled-components";
 
 // import Accordian from "./components/ui/Accordian";
-import Dropdown from "./components/ui/dropdown";
+import Dropdown from "./components/ui/Dropdown";
 import Modal from "./components/ui/Modal";
 import { useState } from "react";
 
