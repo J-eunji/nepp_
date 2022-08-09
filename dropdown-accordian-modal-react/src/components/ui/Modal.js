@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 export default function Modal() {
+  const [disappear, setDisappear] = useState(false);
   return (
-    <Container>
+    <Container disappear={disappear}>
       <Box></Box>
     </Container>
   );
