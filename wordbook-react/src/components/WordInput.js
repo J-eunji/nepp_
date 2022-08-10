@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 
 export default function WordInput({ onCreate }) {
@@ -7,12 +7,32 @@ export default function WordInput({ onCreate }) {
     kor: "",
   });
 
+  const engInput = useRef();
+
   // 이 부분 문법 자주 쓰임!!!!
   const onChange = (e) => {
     const { name, value } = e.target;
     setInputs({
       ...inputs,
       [name]: value,
+    });
+  };
+
+  const add = () => {
+    if (inputs.eng !== "" && inputs.kor !== "") {
+      onCreate(inputs.eng, inputs.kor.split(","));
+    } else {
+      alert("빈 칸이 있습니다.");
+    }
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+    engInput.current.focus();
+    add();
+    setInputs({
+      eng: "",
+      kor: "",
     });
   };
 
@@ -24,6 +44,8 @@ export default function WordInput({ onCreate }) {
         name="eng"
         onChange={onChange}
         value={inputs.eng}
+        autoComplete="off"
+        ref={engInput}
       />
       <input
         type="text"
@@ -31,28 +53,14 @@ export default function WordInput({ onCreate }) {
         name="kor"
         onChange={onChange}
         value={inputs.kor}
+        autoComplete="off"
       />
-      <button
-        onClick={() => {
-          onCreate(inputs.eng, inputs.kor.split(","));
-          setInputs({
-            eng: "",
-            kor: "",
-          });
-          console.log(inputs);
-        }}
-      >
-        등록
-      </button>
+      <button onClick={onClick}>등록</button>
     </InputBlock>
   );
 }
 
-const InputBlock = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+const InputBlock = styled.form`
   padding: 10px 20px;
   input {
     width: 100%;

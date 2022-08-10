@@ -27,11 +27,16 @@ export default function WordBook() {
   const nextId = useRef(state.length + 1);
 
   const onCreate = (eng, kor) => {
-    dispatch({
-      type: "create_word",
-      word: { id: nextId.current, eng, kor },
-    });
-    nextId.current++;
+    const engList = state.map((word) => word.eng);
+    if (engList.includes(eng)) {
+      alert("이미 등록된 단어입니다.");
+    } else {
+      dispatch({
+        type: "create_word",
+        word: { id: nextId.current, eng, kor },
+      });
+      nextId.current++;
+    }
   };
 
   const onRemove = (id) => {
@@ -52,7 +57,7 @@ export default function WordBook() {
         <WordBookBlock>
           <WordBookHeader state={state} />
           <WordList wordList={state} onRemove={onRemove} onToggle={onToggle} />
-          <WordInput onCreate={onCreate} />
+          <WordInput wordList={state} onCreate={onCreate} />
         </WordBookBlock>
       </Template>
     </div>

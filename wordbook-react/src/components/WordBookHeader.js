@@ -8,7 +8,6 @@ export default function WordBookHeader({ state }) {
     dateStyle: "full",
   });
   let Mc = count !== 0 ? mCount / count : count;
-  console.log(Mc);
   return (
     <HeaderBlock>
       <h2>{todayStr}</h2>
