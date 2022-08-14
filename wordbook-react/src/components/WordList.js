@@ -20,6 +20,7 @@ export default function WordList({ wordList, onRemove, onToggle }) {
 
 function WordItem({ word, onRemove, onToggle }) {
   const [active, setActive] = useState(false);
+  console.log(word);
   return (
     <WordItemBlock onClick={() => setActive(!active)}>
       <EngBox>
