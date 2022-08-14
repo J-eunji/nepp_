@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { bg_color, border_color } from "../color";
-import Button from "./Button";
 import Form from "./Form";
 
 export default function Instagram() {
@@ -11,7 +10,6 @@ export default function Instagram() {
           <img src={require("../assets/image/instagram_logo.png")} />
         </Logo>
         <Form />
-        <Button />
       </Block>
     </Template>
   );
