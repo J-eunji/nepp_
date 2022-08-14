@@ -1,7 +1,13 @@
+import { Reset } from "styled-reset";
 import Instagram from "./components/Instagram";
 
 function App() {
-  return <Instagram />;
+  return (
+    <>
+      <Reset />
+      <Instagram />
+    </>
+  );
 }
 
 export default App;
