@@ -1,19 +1,21 @@
-import styled from "styled-components";
-import { btn_color } from "../color";
+import styled, { css } from "styled-components";
+import { active_color } from "../color";
 
-export default function Button({ text, margin }) {
-  return <StyledButton margin={margin}>{text}</StyledButton>;
+export default function Button({ text, active }) {
+  return <StyledButton active={active}>{text}</StyledButton>;
 }
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   width: 100%;
-  padding: 7px 0;
+  padding: 8px 0;
   color: #fff;
-  text-align: center;
-  font-weight: 600;
+  border: none;
   border-radius: 4px;
-  background-color: ${btn_color};
-  opacity: 0.3;
-  cursor: pointer;
-  ${({ margin }) => margin};
+  margin-top: 15px;
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: ${active_color};
+      cursor: pointer;
+    `};
 `;
