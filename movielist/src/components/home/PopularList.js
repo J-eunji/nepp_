@@ -1,24 +1,56 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getPopularMovie } from "../../custom-axios";
+import { getPopular } from "../../custom-axios";
+import TabList from "../common/TabList";
+import TabMenu from "../common/TabMenu";
 import Title from "../common/Title";
 import PopularItem from "./PopularItem";
 
-export default function PopularList() {
+export default function PopularList({ title }) {
   // 밖에서 선언해서 안에서 쓰고,, 다시 꺼낼수 있는,,
   // 상태업데이트..
   const [data, setData] = useState([]);
-  const fetchData = async () => {
-    let { results } = await getPopularMovie();
-    setData(results);
+  const [tabList, setTabList] = useState([
+    { id: 1, text: "Movie", active: true },
+    { id: 2, text: "TV", active: false },
+  ]);
+
+  const onClickTab = (id) => {
+    setTabList(
+      tabList.map((menu) =>
+        menu.id === id ? { ...menu, active: true } : { ...menu, active: false }
+      )
+    );
   };
-  console.log(fetchData);
+
   useEffect(() => {
+    // tabList 업데이트 될 때마다 useEffect안의 코드 실행
+    // -> tabList 변할 떄마다 fetchData함수를 재생성
+    const fetchData = async () => {
+      // Array.prototype.find() => 조건에 부합하는 요소 한개만(첫번째)만 반환(배열x)
+      const category = tabList.find((menu) => menu.active).category;
+      let { results } = await getPopular(category);
+      setData(results);
+    };
+
     fetchData();
-  }, []);
+  }, [tabList]);
+
   return (
     <ListBlock>
-      <Title />
+      <TitleBox>
+        <Title title={title} margin="0 20px 0 0 " />
+        <TabList tabList={tabList} onClickTab={onClickTab}>
+          {tabList.map((menu) => (
+            <TabMenu
+              key={menu.id}
+              menu={menu}
+              text={menu.text}
+              onClickTab={onClickTab}
+            />
+          ))}
+        </TabList>
+      </TitleBox>
       <ul>
         {data.map((item) => (
           <PopularItem key={item.id} item={item} />
@@ -35,4 +67,9 @@ const ListBlock = styled.div`
     display: flex;
     overflow-x: scroll;
   }
+`;
+
+const TitleBox = styled.div`
+  display: flex;
+  align-items: center;
 `;

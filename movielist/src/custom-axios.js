@@ -12,7 +12,7 @@ export const instance = axios.create({
 // language 가져오기
 // params 라는 key값에 넣어야 함
 
-export const getPopularMovie = async () => {
+export const getPopular = async () => {
   let { data } = await instance.get("movie/popular", {
     params: {
       language: "ko-KR",

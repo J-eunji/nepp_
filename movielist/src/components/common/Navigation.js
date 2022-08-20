@@ -7,7 +7,7 @@ const gnbList = [
   {
     id: 1,
     title: "HOME",
-    url: "/home",
+    url: "/",
   },
   {
     id: 2,

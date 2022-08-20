@@ -13,8 +13,8 @@ function App() {
       <Header />
       <MainBlock>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/movie" element={<Movie />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/*" element={<Movie />} />
           <Route path="/tv" element={<Tv />} />
         </Routes>
       </MainBlock>
