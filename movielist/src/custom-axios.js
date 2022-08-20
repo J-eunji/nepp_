@@ -11,9 +11,10 @@ export const instance = axios.create({
 // https://developers.themoviedb.org/3/movies/get-popular-movies
 // language 가져오기
 // params 라는 key값에 넣어야 함
+// async 비동기를 동기처리처럼 받아오는 함수
 
-export const getPopular = async () => {
-  let { data } = await instance.get("movie/popular", {
+export const getPopular = async (category) => {
+  let { data } = await instance.get(`/${category}/popular`, {
     params: {
       language: "ko-KR",
     },
@@ -21,11 +22,13 @@ export const getPopular = async () => {
   return data;
 };
 
-export const getPopularTV = async () => {
-  let { data } = await instance.get("tv/popular", {
+// https://developers.themoviedb.org/3/movies/get-movie-details
+
+export const getDetails = async (url) => {
+  let results = await instance.get(url, {
     params: {
       language: "ko-KR",
     },
   });
-  return data;
+  return results;
 };

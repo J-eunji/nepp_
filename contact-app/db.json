@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "dd",
+      "author": "kkamji",
+      "id": 5
+    },
+    {
+      "title": "zz",
+      "author": "kaka",
+      "id": 6
+    },
+    {
+      "title": "zzff",
+      "author": "kkamji",
+      "id": 7
+    },
+    {
+      "title": "ㅇㅇ",
+      "author": "kkamji",
+      "id": 8
+    },
+    {
+      "title": "ㅇㅇㄹㄹ",
+      "author": "kaka",
+      "id": 9
+    },
+    {
+      "title": "zz",
+      "author": "kaka",
+      "id": 11
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

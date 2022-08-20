@@ -11,8 +11,8 @@ export default function PopularList({ title }) {
   // 상태업데이트..
   const [data, setData] = useState([]);
   const [tabList, setTabList] = useState([
-    { id: 1, text: "Movie", active: true },
-    { id: 2, text: "TV", active: false },
+    { id: 1, text: "Movie", active: true, category: "movie" },
+    { id: 2, text: "TV", active: false, category: "tv" },
   ]);
 
   const onClickTab = (id) => {
@@ -25,7 +25,7 @@ export default function PopularList({ title }) {
 
   useEffect(() => {
     // tabList 업데이트 될 때마다 useEffect안의 코드 실행
-    // -> tabList 변할 떄마다 fetchData함수를 재생성
+    // -> tabList 변할 때마다 fetchData함수를 재생성
     const fetchData = async () => {
       // Array.prototype.find() => 조건에 부합하는 요소 한개만(첫번째)만 반환(배열x)
       const category = tabList.find((menu) => menu.active).category;
@@ -36,20 +36,17 @@ export default function PopularList({ title }) {
     fetchData();
   }, [tabList]);
 
+  console.log(tabList);
+
+  const tabListJsx = tabList.map((menu) => (
+    <TabMenu key={menu.id} menu={menu} onClickTab={onClickTab} />
+  ));
+
   return (
     <ListBlock>
       <TitleBox>
         <Title title={title} margin="0 20px 0 0 " />
-        <TabList tabList={tabList} onClickTab={onClickTab}>
-          {tabList.map((menu) => (
-            <TabMenu
-              key={menu.id}
-              menu={menu}
-              text={menu.text}
-              onClickTab={onClickTab}
-            />
-          ))}
-        </TabList>
+        <TabList>{tabListJsx}</TabList>
       </TitleBox>
       <ul>
         {data.map((item) => (
