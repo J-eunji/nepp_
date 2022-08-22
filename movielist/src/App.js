@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { Reset } from "styled-reset";
 import Header from "./components/common/Header";
 import Home from "./components/home/Home";
@@ -9,6 +9,7 @@ import Tv from "./components/tv/Tv";
 function App() {
   return (
     <div>
+      <GlobalStyle />
       <Reset />
       <Header />
       <MainBlock>
@@ -21,6 +22,13 @@ function App() {
     </div>
   );
 }
+
+const GlobalStyle = createGlobalStyle`
+  a {
+    text-decoration: none;
+    color: black;
+  }
+`;
 
 const MainBlock = styled.div`
   padding: 50px 100px;

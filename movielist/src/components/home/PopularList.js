@@ -62,7 +62,6 @@ const ListBlock = styled.div`
   ul {
     margin-top: 30px;
     display: flex;
-    overflow-x: scroll;
   }
 `;
 

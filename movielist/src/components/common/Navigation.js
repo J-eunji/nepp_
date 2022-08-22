@@ -34,6 +34,7 @@ export default function Navigation() {
 }
 
 const NavBlock = styled.nav`
+  flex: 1;
   ul {
     display: flex;
     margin-left: 50px;

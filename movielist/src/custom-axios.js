@@ -13,10 +13,11 @@ export const instance = axios.create({
 // params 라는 key값에 넣어야 함
 // async 비동기를 동기처리처럼 받아오는 함수
 
-export const getPopular = async (category) => {
+export const getPopular = async (category, page) => {
   let { data } = await instance.get(`/${category}/popular`, {
     params: {
       language: "ko-KR",
+      page,
     },
   });
   return data;
@@ -31,4 +32,18 @@ export const getDetails = async (url) => {
     },
   });
   return results;
+};
+
+export const getSearch = async (query) => {
+  try {
+    let result = await instance.get("/search/multi", {
+      params: {
+        language: "ko-KR",
+        query,
+      },
+    });
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
 };
