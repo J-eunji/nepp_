@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import Home from "./components/Home/Home";
+import Main from "./components/Home/Main";
 
 function App() {
   return (
     <div>
       <GlobalStyle />
-      <Home></Home>
+      <Main></Main>
     </div>
   );
 }

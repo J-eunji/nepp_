@@ -1,29 +1,45 @@
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useState } from "react";
 
 export default function Slider() {
-  const [count, setCount] = useState(0);
-  const handleSlide = (count) => {
-    setCount(count < 2 ? count + 1 : count);
-    console.log(count * 100);
-    return count * -100;
+  const [slideList, setSlideList] = useState([{ id: 1 }, { id: 2 }, { id: 3 }]);
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(false);
+  const handleLeft = () => {
+    if (index > 0) {
+      setFade(true);
+      setIndex(index - 1);
+    }
   };
-  const handleSlidee = () => {
-    setCount(count < 2 ? count + 1 : count);
-    console.log(count * 100);
-    return count * 100;
+
+  const handleRight = () => {
+    if (index < slideList.length - 1) {
+      setFade(true);
+      setIndex(index + 1);
+    }
   };
+
   return (
     <Container>
-      <ImgBox>
-        <SlideImg />
-        <SlideImg />
-        <SlideImg />
+      <ImgBox length={slideList.length} index={index} fade={fade}>
+        {slideList.map((slide) => (
+          <SlideImg key={slide.id}>
+            <p>{slide.id}</p>
+          </SlideImg>
+        ))}
       </ImgBox>
       <Button>
-        <BsChevronLeft size={50} style={{ cursor: "pointer" }} />
-        <BsChevronRight size={50} style={{ cursor: "pointer" }} />
+        <BsChevronLeft
+          size={50}
+          cursor="pointer"
+          onClick={() => handleLeft()}
+        />
+        <BsChevronRight
+          size={50}
+          cursor="pointer"
+          onClick={() => handleRight()}
+        />
       </Button>
     </Container>
   );
@@ -34,23 +50,32 @@ const Container = styled.div`
   position: relative;
 `;
 
-const ImgBox = styled.div`
-  display: flex;
-  width: 300vw;
-  height: 450px;
-  overflow: hidden;
-  /* ${({ clickLeft }) => css`
-    transform: translate(${clickLeft}vw);
-  `}
-  ${({ clickRight }) => css`
-    transform: translate(${clickRight}vw);
-  `} */
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 `;
 
-const SlideImg = styled.div`
+const ImgBox = styled.ul`
+  display: flex;
+  height: 450px;
+  ${({ length, index }) => css`
+    width: ${length * 100}vw;
+    transform: translate(${index * -100}vw);
+  `}
+  ${({ fade }) =>
+    fade &&
+    css`
+      animation: ${fadeIn} 0.5s;
+    `}
+`;
+
+const SlideImg = styled.li`
   width: 100vw;
-  height: 500px;
-  overflow: hidden;
+  position: relative;
   :nth-child(1) {
     background-color: pink;
   }
@@ -59,6 +84,13 @@ const SlideImg = styled.div`
   }
   :nth-child(3) {
     background-color: lightgreen;
+  }
+  p {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    color: white;
+    font-size: 3em;
   }
 `;
 
