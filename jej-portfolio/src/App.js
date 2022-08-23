@@ -1,15 +1,15 @@
 import { createGlobalStyle } from "styled-components";
-import Home from "./components/main/Home";
-import Project from "./components/Project/Project";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Home from "./components/home/Home";
 
 function App() {
   return (
     <div>
       <GlobalStyle />
+      <Header />
       <Home />
-      <Project />
-      <Project />
-      <Project />
+      <Footer />
     </div>
   );
 }
@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
+  user-select: none;
 }`;
 
 export default App;

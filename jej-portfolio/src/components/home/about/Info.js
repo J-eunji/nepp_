@@ -10,16 +10,15 @@ export default function Info() {
         </Hashtag>
         <Hashtag>
           <h5>#FAVORITE</h5>
-          <p>반려동물, 미술</p>
+          <p>반려견, 미술</p>
         </Hashtag>
       </Box>
       <DivideLine />
       <Box>
         <h5>#SKILL</h5>
-        <p>HTML, CSS3</p>
-        <p>JavaScript(ES6)</p>
-        <p>React</p>
-        <p>Python</p>
+        <ImgBox>
+          <img src="img/icon.png" alt="skill" />
+        </ImgBox>
       </Box>
     </Container>
   );
@@ -27,12 +26,9 @@ export default function Info() {
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-around;
   background-color: gray;
-  margin-top: 480px;
-  width: 100vw;
-  flex: 1;
-  padding: 50px;
+  flex: 0.5;
+  padding: 60px 50px;
 `;
 
 const Box = styled.div`
@@ -61,4 +57,13 @@ const DivideLine = styled.div`
   background-color: black;
   width: 1px;
   height: auto;
+  margin: 0 70px;
+`;
+
+const ImgBox = styled.div`
+  width: 700px;
+  margin-top: 20px;
+  img {
+    width: 700px;
+  }
 `;

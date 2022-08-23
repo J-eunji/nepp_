@@ -11,23 +11,19 @@ export default function Introduce() {
   );
 }
 const Container = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #ddd;
   width: 100vw;
-  height: 480px;
+  flex: 1;
   z-index: -1;
 `;
-
 const Box = styled.div`
-  margin-top: 100px;
-  height: 380px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 50px;
   p {
-    margin-left: 30px;
+    margin-left: 50px;
     font-size: 4em;
   }
 `;

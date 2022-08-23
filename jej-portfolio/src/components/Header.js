@@ -17,7 +17,7 @@ export default function Header() {
       <HomeLogo>Portfolio</HomeLogo>
       <ProjectList>
         <p>Project</p>
-        <li onClick={() => window.scrollY(800)}>#1</li>
+        <li>#1</li>
         <li>#2</li>
         <li>#3</li>
       </ProjectList>
@@ -31,9 +31,10 @@ const Container = styled.header`
   align-items: center;
   width: 100vw;
   height: 100px;
-  padding: 0 30px;
-  background-color: none;
+  padding: 0 50px;
   position: fixed;
+  top: 0;
+  left: 0;
   ${({ active }) =>
     active &&
     css`
