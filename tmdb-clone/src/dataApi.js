@@ -9,10 +9,21 @@ export const instance = axios.create({
 });
 
 export const getPopular = async () => {
-  let results = await instance.get("/movie/popular", {
+  let { data } = await instance.get("/movie/popular", {
     params: {
-      Language: "ko-KR",
+      language: "ko-KR",
+      region: "KR",
     },
   });
-  return results;
+  return data;
+};
+
+export const getUpcoming = async () => {
+  let { data } = await instance.get("/movie/upcoming", {
+    params: {
+      language: "ko-KR",
+      region: "KR",
+    },
+  });
+  return data;
 };

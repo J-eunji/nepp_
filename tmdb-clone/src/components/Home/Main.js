@@ -1,8 +1,8 @@
 import Header from "./Header";
-import PopularList from "./PopularList";
+import PopularList from "./Popular/PopularBox";
 import Slider from "./Slider";
 
-export default function Home() {
+export default function Main() {
   return (
     <>
       <Header />

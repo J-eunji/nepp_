@@ -1,34 +1,47 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useState } from "react";
+import { getUpcoming } from "../../dataApi";
 
 export default function Slider() {
-  const [slideList, setSlideList] = useState([{ id: 1 }, { id: 2 }, { id: 3 }]);
+  const [slideList, setSlideList] = useState([]);
   const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(false);
+  const imgUrl = "https://image.tmdb.org/t/p/original";
+
+  const getResults = async () => {
+    let { results } = await getUpcoming();
+    setSlideList(results.slice(0, 5));
+  };
+  getResults();
+
   const handleLeft = () => {
     if (index > 0) {
-      setFade(true);
       setIndex(index - 1);
     }
   };
 
   const handleRight = () => {
     if (index < slideList.length - 1) {
-      setFade(true);
       setIndex(index + 1);
     }
   };
 
   return (
     <Container>
-      <ImgBox length={slideList.length} index={index} fade={fade}>
-        {slideList.map((slide) => (
-          <SlideImg key={slide.id}>
-            <p>{slide.id}</p>
-          </SlideImg>
-        ))}
-      </ImgBox>
+      {slideList.map((slide, idx) => {
+        return (
+          <SlideBox
+            key={slide.id}
+            imgUrl={imgUrl + slide.backdrop_path}
+            active={idx === index}
+          >
+            <img src={imgUrl + slide.backdrop_path} alt={slide.title} />
+            <SlideDate>{slide.release_date} 개봉</SlideDate>
+            <SlideTitle>{slide.title}</SlideTitle>
+          </SlideBox>
+        );
+      })}
+
       <Button>
         <BsChevronLeft
           size={50}
@@ -47,51 +60,41 @@ export default function Slider() {
 
 const Container = styled.div`
   overflow: hidden;
+  height: 650px;
   position: relative;
 `;
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const ImgBox = styled.ul`
-  display: flex;
-  height: 450px;
-  ${({ length, index }) => css`
-    width: ${length * 100}vw;
-    transform: translate(${index * -100}vw);
-  `}
-  ${({ fade }) =>
-    fade &&
-    css`
-      animation: ${fadeIn} 0.5s;
-    `}
-`;
-
-const SlideImg = styled.li`
+const SlideBox = styled.li`
   width: 100vw;
-  position: relative;
-  :nth-child(1) {
-    background-color: pink;
+  height: 550px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s;
+  ${({ active }) => css`
+    opacity: ${active ? 1 : 0};
+  `};
+  img {
+    width: 100%;
   }
-  :nth-child(2) {
-    background-color: lightblue;
-  }
-  :nth-child(3) {
-    background-color: lightgreen;
-  }
-  p {
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    color: white;
-    font-size: 3em;
-  }
+`;
+
+const SlideDate = styled.p`
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  color: white;
+  font-size: 1.8em;
+  text-shadow: 4px 4px 5px black;
+`;
+
+const SlideTitle = styled.p`
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  color: white;
+  font-size: 3em;
+  text-shadow: 4px 4px 5px black;
 `;
 
 const Button = styled.div`
@@ -103,4 +106,5 @@ const Button = styled.div`
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
+  z-index: 2;
 `;

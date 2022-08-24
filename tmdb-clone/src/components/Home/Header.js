@@ -1,3 +1,4 @@
+import { BiSearchAlt2 } from "react-icons/bi";
 import styled from "styled-components";
 
 export default function Header() {
@@ -9,8 +10,8 @@ export default function Header() {
         <li>TV</li>
       </GnbList>
       <SearchBox>
-        <input type="text" />
-        <button>검색</button>
+        <input type="text" placeholder="영화 제목, TV 제목, 배우 이름" />
+        <BiSearchAlt2 size={30} cursor="pointer" />
       </SearchBox>
     </Container>
   );
@@ -40,12 +41,11 @@ const GnbList = styled.ul`
 `;
 
 const SearchBox = styled.div`
+  display: flex;
   input {
+    width: 300px;
     height: 30px;
-  }
-  button {
-    height: 30px;
-    padding: 0 10px;
-    border: none;
+    margin-right: 5px;
+    padding: 0 5px;
   }
 `;

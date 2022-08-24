@@ -1,12 +1,12 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Main from "./components/Home/Main";
 
 function App() {
   return (
-    <div>
+    <Container>
       <GlobalStyle />
-      <Main></Main>
-    </div>
+      <Main />
+    </Container>
   );
 }
 
@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
+`;
+
+const Container = styled.div`
+  overflow-x: hidden;
 `;
 
 export default App;
