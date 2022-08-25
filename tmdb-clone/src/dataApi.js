@@ -8,22 +8,42 @@ export const instance = axios.create({
   },
 });
 
-export const getPopular = async () => {
-  let { data } = await instance.get("/movie/popular", {
-    params: {
-      language: "ko-KR",
-      region: "KR",
-    },
-  });
-  return data;
+export const getPopular = async (category) => {
+  try {
+    let { data } = await instance.get(`/${category}/popular`, {
+      params: {
+        language: "ko-KR",
+        region: "KR",
+      },
+    });
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const getUpcoming = async () => {
-  let { data } = await instance.get("/movie/upcoming", {
-    params: {
-      language: "ko-KR",
-      region: "KR",
-    },
-  });
-  return data;
+  try {
+    let { data } = await instance.get("/movie/upcoming", {
+      params: {
+        language: "ko-KR",
+        region: "KR",
+      },
+    });
+    return data;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getVideos = async (results, category) => {
+  try {
+    let ids = results.map((obj) => obj.id);
+    let video = await Promise.all(
+      ids.map((id) => instance.get(`${category}/${id}/videos`))
+    );
+    return video;
+  } catch (e) {
+    console.log(e);
+  }
 };

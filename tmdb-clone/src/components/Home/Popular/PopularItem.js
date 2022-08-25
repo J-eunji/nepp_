@@ -1,34 +1,32 @@
 import styled, { css } from "styled-components";
 
-export default function PopularMovieItem({ popularList }) {
+export default function PopularItem({ popularItem }) {
+  const { poster_path, title, release_date, popularity, name, first_air_date } =
+    popularItem;
   const ImgUrl = "https://image.tmdb.org/t/p/w300";
-
+  const popularityPercentage = Math.round(popularity / 100);
+  const color =
+    popularityPercentage >= 70
+      ? "#239c56"
+      : popularityPercentage >= 40
+      ? "#c8cf5e"
+      : "#a72b2b";
+  const status = Math.round((popularityPercentage * 360) / 100);
   return (
-    <Container>
-      {popularList.map((popular) => {
-        const status = Math.round(popular.popularity / 100);
-        return (
-          <ItemBox key={popular.id}>
-            <Img>
-              <img src={ImgUrl + popular.poster_path} alt={popular.title} />
-            </Img>
-            <Popularity status={status}>
-              <Circle />
-              <p>{status}</p>
-              <span>%</span>
-            </Popularity>
-            <p>{popular.title}</p>
-            <span>{popular.release_date}</span>
-          </ItemBox>
-        );
-      })}
-    </Container>
+    <ItemBox>
+      <Img>
+        <img src={ImgUrl + poster_path} alt={title || name} />
+      </Img>
+      <Popularity status={status} color={color}>
+        <Circle />
+        <p>{popularityPercentage}</p>
+        <span>%</span>
+      </Popularity>
+      <p>{title || name}</p>
+      <span>{release_date || first_air_date}</span>
+    </ItemBox>
   );
 }
-
-const Container = styled.div`
-  display: flex;
-`;
 
 const ItemBox = styled.div`
   width: 300px;
@@ -73,28 +71,34 @@ const Popularity = styled.div`
   border-radius: 50%;
   z-index: 2;
   outline: 5px solid #000;
-  ${({ status }) => css`
-    background: conic-gradient(#487, ${status}deg);
-  `}
+  ${({ status, backStatus, color }) =>
+    css`
+      background: conic-gradient(
+        ${color} ${status}deg,
+        #fff ${status}deg ${360 - status}deg
+      );
+    `}
   p {
     color: #fff;
     font-size: 0.9em;
     margin: 0;
+    z-index: 2;
   }
   span {
     color: #fff;
     font-size: 5px;
+    z-index: 2;
   }
 `;
 
 const Circle = styled.div`
   background-color: none;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   position: absolute;
   bottom: 5px;
   left: 5px;
   background-color: #000;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 1;
 `;

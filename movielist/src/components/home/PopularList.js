@@ -36,8 +36,6 @@ export default function PopularList({ title }) {
     fetchData();
   }, [tabList]);
 
-  console.log(tabList);
-
   const tabListJsx = tabList.map((menu) => (
     <TabMenu key={menu.id} menu={menu} onClickTab={onClickTab} />
   ));

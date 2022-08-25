@@ -1,13 +1,18 @@
+import { RecoilRoot } from "recoil";
 import Header from "./Header";
-import PopularList from "./Popular/PopularBox";
+import PopularBox from "./Popular/PopularBox";
 import Slider from "./Slider";
+import UpcomingBox from "./Upcoming/UpcomingBox";
 
 export default function Main() {
   return (
     <>
-      <Header />
-      <Slider />
-      <PopularList />
+      <RecoilRoot>
+        <Header />
+        <Slider />
+        <PopularBox />
+        <UpcomingBox />
+      </RecoilRoot>
     </>
   );
 }

@@ -1,18 +1,19 @@
 import styled, { css } from "styled-components";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getUpcoming } from "../../dataApi";
 
 export default function Slider() {
   const [slideList, setSlideList] = useState([]);
   const [index, setIndex] = useState(0);
   const imgUrl = "https://image.tmdb.org/t/p/original";
-
-  const getResults = async () => {
-    let { results } = await getUpcoming();
-    setSlideList(results.slice(0, 5));
-  };
-  getResults();
+  useEffect(() => {
+    const getResults = async () => {
+      let { results } = await getUpcoming();
+      setSlideList(results.slice(0, 5));
+    };
+    getResults();
+  }, []);
 
   const handleLeft = () => {
     if (index > 0) {

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import PopularList from "./PopularList";
-import PopularTitle from "./PopularTitle";
+import Title from "../../common/Title";
 
 export default function PopularBox() {
   return (
     <Container>
-      <PopularTitle />
+      <Title />
       <PopularList />
     </Container>
   );

@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { getPopular } from "../../../dataApi";
 import PopularItem from "./PopularItem";
+import { tabState } from "../../atoms/tabList";
 
-export default function PopularMovieList() {
+export default function PopularList() {
+  const tabList = useRecoilValue(tabState);
   const [popularList, setPopularList] = useState([]);
-  const getData = async () => {
-    let { results } = await getPopular();
-    setPopularList(results);
-  };
-  getData();
+
+  useEffect(() => {
+    const category = tabList.find((tab) => tab.active).category;
+    const getData = async () => {
+      let { results } = await getPopular(category);
+      setPopularList(results);
+    };
+    getData();
+  }, [tabList]);
 
   return (
     <ContentList>
-      <PopularItem popularList={popularList} />
+      {popularList.map((popularItem) => (
+        <PopularItem key={popularItem.id} popularItem={popularItem} />
+      ))}
     </ContentList>
   );
 }

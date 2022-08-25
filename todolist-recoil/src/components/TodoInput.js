@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { useSetRecoilState } from "recoil";
-j;
 import { todoState } from "../atoms/todo";
 
 export default function TodoInput() {
