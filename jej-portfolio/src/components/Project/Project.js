@@ -24,6 +24,7 @@ const Container = styled.div`
   flex-direction: column;
   padding-top: 120px;
   height: 100vh;
+  overflow: hidden;
 `;
 
 const Title = styled.div`
@@ -39,22 +40,32 @@ const Title = styled.div`
 `;
 
 const ContentBox = styled.div`
+  height: 650px;
   margin: 50px;
   background-color: #ddd;
   padding: 20px;
   border-radius: 8px;
   display: flex;
-  justify-content: space-between;
 `;
 
 const ImgBox = styled.div`
-  width: 390px;
-  height: 450px;
+  width: 890px;
+  height: 100%;
   background-color: pink;
   border-radius: 8px;
 `;
 
 const Content = styled.div`
   width: 400px;
-  font-size: 1.1em;
+  margin: 0 20px;
+  font-size: 1.3em;
+  button {
+    border: none;
+    font-size: 1.2em;
+    background: none;
+    cursor: pointer;
+    &:hover {
+      font-weight: 700;
+    }
+  }
 `;

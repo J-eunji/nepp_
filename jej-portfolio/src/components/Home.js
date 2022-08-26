@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import About from "./about/About";
-import Project from "./Project/Project";
+import MainSection from "./About/MainSection";
+import Diary from "./Project/Diary";
+import Movie from "./Project/Movie";
+import Tistory from "./Project/Tistory";
 
 export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [index, setIndex] = useState(0);
-
   useEffect(() => {
     const sectionChange = (e) => {
       e.stopPropagation();
@@ -21,7 +22,7 @@ export default function Home() {
       }, 500);
 
       if (e.deltaY > 0) {
-        if (index < 5) {
+        if (index < 4) {
           setIndex((index) => index + 1);
         }
       } else if (index > 0) {
@@ -44,14 +45,14 @@ export default function Home() {
 
   return (
     <Container>
-      <About />
-      <Project />
-      <Project />
-      <Project />
-      <Project />
-      <Project />
+      <MainSection />
+      <Movie />
+      <Diary />
+      <Tistory />
     </Container>
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  overflow-x: hidden;
+`;
