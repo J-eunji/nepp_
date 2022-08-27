@@ -1,23 +1,25 @@
 import styled from "styled-components";
 
-export default function UpcommingItem({ video, movie }) {
-  const movieList = movie.filter((obj) => obj.backdrop_path !== null);
-  console.log(movieList);
-  const { title, release_date, backdrop_path } = movieList;
+export default function UpcommingItem({
+  videoUrl,
+  title,
+  backdrop_path,
+  overview,
+}) {
   const ImgUrl = "https://image.tmdb.org/t/p/w1280/";
+  console.log(title);
   return (
     <ItemBox>
       <Img>
         <img src={ImgUrl + backdrop_path} alt={title} />
       </Img>
       <p>{title}</p>
-      <span>{release_date}</span>
     </ItemBox>
   );
 }
 
 const ItemBox = styled.div`
-  width: 300px;
+  width: 600px;
   height: 470px;
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@ const ItemBox = styled.div`
 
 const Img = styled.div`
   img {
-    width: 300px;
+    width: 550px;
     height: 450px;
     object-fit: cover;
     border-radius: 8px;

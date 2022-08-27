@@ -6,8 +6,9 @@ import { useRecoilValue } from "recoil";
 import { tabState } from "../../atoms/tabList";
 
 export default function UpcomingList() {
-  const [movie, setMovie] = useState([]);
+  const [movieList, setMovieList] = useState([]);
   const [videoList, setVideoList] = useState([]);
+  const [upComingList, setUpComingList] = useState([]);
   const tabList = useRecoilValue(tabState);
   const imgUrl = "https://image.tmdb.org/t/p/original";
 
@@ -15,7 +16,7 @@ export default function UpcomingList() {
     const category = tabList.find((tab) => tab.active).category;
     const getResults = async () => {
       let { results } = await getUpcoming(category);
-      setMovie(results);
+      setMovieList(results);
     };
     getResults();
   }, [tabList]);
@@ -23,19 +24,46 @@ export default function UpcomingList() {
   useEffect(() => {
     const getVideoUrl = async () => {
       const category = tabList.find((tab) => tab.active).category;
-      let data = await getVideos(movie, category);
+      let data = await getVideos(movieList, category);
       let idresults = data.map((obj) => obj.data);
       let results = idresults.map((obj) => obj.results);
-      let resultdata = results.filter((obj) => obj[0] !== undefined);
-      setVideoList(resultdata);
+      let resultdata = results.map((obj) =>
+        obj[0] !== undefined ? obj[0] : {}
+      );
+      let idchange = resultdata.map((obj) => {
+        return { ...obj, url: obj.id };
+      });
+      setVideoList(idchange);
     };
     getVideoUrl();
-  }, [movie, tabList]);
+  }, [movieList, tabList]);
+
+  setUpComingList(() => {
+    for (let i = 0; i < videoList.length; ) {
+      return [
+        ...upComingList,
+        {
+          ...videoList[i],
+          ...movieList[i],
+        },
+      ];
+    }
+  });
+
   return (
     <ContentList imgUrl={imgUrl}>
-      {videoList.map((video, idx) => (
-        <UpcommingItem key={idx} video={video.key} movie={movie} />
-      ))}
+      {upComingList.map(
+        (upcoming, idx) =>
+          upcoming.overview !== undefined && (
+            <UpcommingItem
+              key={idx}
+              videoUrl={upcoming.key}
+              backdropPath={upcoming.backdrop_path}
+              title={upcoming.title}
+              overview={upcoming.overview}
+            />
+          )
+      )}
     </ContentList>
   );
 }

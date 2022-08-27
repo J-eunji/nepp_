@@ -5,7 +5,7 @@ import Title from "../../common/Title";
 export default function PopularBox() {
   return (
     <Container>
-      <Title />
+      <Title rank={"popular"} />
       <PopularList />
     </Container>
   );

@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import TabButton from "./TabButton";
 
-export default function Title() {
+export default function Title({ rank }) {
   const titleList = [
-    { id: 0, text: "인기" },
-    { id: 1, text: "최신 예고편" },
-    { id: 2, text: "트렌딩" },
+    { id: 0, text: "인기", rank: "popular" },
+    { id: 1, text: "최신 예고편", rank: "upComing" },
+    { id: 2, text: "트렌딩", rank: "trending" },
   ];
-
   return (
     <Container>
-      <h3>인기</h3>
+      <h3>{titleList.find((title) => title.rank === rank).text}</h3>
       <TabButton />
     </Container>
   );

@@ -9,7 +9,6 @@ export default function Movie() {
   const [index, setIndex] = useState(0);
 
   const [move, setMove] = useState(false);
-  const [roll, setRoll] = useState(false);
 
   const [btn, setBtn] = useState([
     {
@@ -33,7 +32,6 @@ export default function Movie() {
   };
   const LeaveBtn = () => {
     setBtn(btnList.filter((btn) => btn.active));
-    setRoll(false);
   };
 
   useEffect(() => {
@@ -42,10 +40,8 @@ export default function Movie() {
       const scroll = scrollRef.current.getBoundingClientRect().top;
       if (scroll < window.innerHeight / 2) {
         setMove(true);
-        setRoll(true);
       } else {
         setMove(false);
-        setRoll(false);
       }
     });
   }, []);
@@ -56,7 +52,7 @@ export default function Movie() {
 
   return (
     <Container ref={scrollRef} index={index}>
-      <Loading move={move} roll={roll}>
+      <Loading move={move}>
         <div
           onMouseOver={() => OverBtn()}
           onMouseLeave={() => LeaveBtn()}
@@ -116,8 +112,8 @@ const Loading = styled.div`
         animation-fill-mode: forwards;
       `}
     .movieIcon {
-      ${({ roll }) =>
-        roll &&
+      ${({ move }) =>
+        move &&
         css`
           animation: ${rolling} 3s;
         `}
@@ -128,5 +124,5 @@ const Loading = styled.div`
 const Detail = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: pink;
+  background-color: blue;
 `;

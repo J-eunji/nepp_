@@ -92,7 +92,7 @@ const SlideDate = styled.p`
 const SlideTitle = styled.p`
   position: absolute;
   bottom: 0;
-  left: 50px;
+  left: 55px;
   color: white;
   font-size: 3em;
   text-shadow: 4px 4px 5px black;

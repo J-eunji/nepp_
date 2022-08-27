@@ -5,7 +5,7 @@ import UpcomingList from "./UpcomingList";
 export default function UpcomingBox() {
   return (
     <Container>
-      <Title />
+      <Title rank={"upComing"} />
       <UpcomingList />
     </Container>
   );
