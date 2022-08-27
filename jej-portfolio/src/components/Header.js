@@ -35,13 +35,12 @@ const Container = styled.header`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   ${({ active }) =>
     active &&
     css`
-       {
-        background-color: #fff;
-        transition: 0.2s;
-      }
+      background-color: #fff;
+      transition: 0.2s;
     `}
 `;
 

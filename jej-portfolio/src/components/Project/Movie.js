@@ -1,45 +1,132 @@
 import { useEffect, useRef, useState } from "react";
+import { SiThemoviedatabase } from "react-icons/si";
 import { RiMovie2Fill } from "react-icons/ri";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export default function Movie() {
   const scrollRef = useRef();
-  const [move, setMove] = useState(0);
+
+  const [index, setIndex] = useState(0);
+
+  const [move, setMove] = useState(false);
+  const [roll, setRoll] = useState(false);
+
+  const [btn, setBtn] = useState([
+    {
+      id: 1,
+      name: <RiMovie2Fill size={80} className="movieIcon" />,
+      active: true,
+    },
+  ]);
+
+  const btnList = [
+    {
+      id: 1,
+      name: <RiMovie2Fill size={80} className="movieIcon" />,
+      active: true,
+    },
+    { id: 2, name: <SiThemoviedatabase size={80} />, active: false },
+  ];
+
+  const OverBtn = () => {
+    setBtn(btnList.filter((btn) => !btn.active));
+  };
+  const LeaveBtn = () => {
+    setBtn(btnList.filter((btn) => btn.active));
+    setRoll(false);
+  };
+
   useEffect(() => {
     if (!scrollRef.current) return;
     window.addEventListener("scroll", () => {
-      const scroll =
-        ((scrollRef.current.getBoundingClientRect().top - 1000) * -1) / 2;
-      if (scroll > 0) setMove(scroll); //innerheight
+      const scroll = scrollRef.current.getBoundingClientRect().top;
+      if (scroll < window.innerHeight / 2) {
+        setMove(true);
+        setRoll(true);
+      } else {
+        setMove(false);
+        setRoll(false);
+      }
     });
   }, []);
 
+  const handlePage = () => {
+    setIndex(1);
+  };
+
   return (
-    <Container ref={scrollRef}>
-      <Loading move={move}>
-        <RiMovie2Fill size={80} />
+    <Container ref={scrollRef} index={index}>
+      <Loading move={move} roll={roll}>
+        <div
+          onMouseOver={() => OverBtn()}
+          onMouseLeave={() => LeaveBtn()}
+          onClick={() => handlePage()}
+        >
+          {btn[0]?.name}
+        </div>
       </Loading>
+      <Detail></Detail>
     </Container>
   );
 }
 const Container = styled.div`
+  background-color: aliceblue;
   display: flex;
-  flex-direction: column;
   padding-top: 120px;
+  width: 200vw;
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  ${({ index }) => css`
+    transform: translate(${index * -100}vw);'
+    transition-duration: 0.2s;
+  `}
+`;
+
+const moving = keyframes`
+  to {
+      transform: translateX(900px);
+    }
+`;
+
+const rolling = keyframes`
+  to {
+      transform: rotate(1080deg);
+    }
 `;
 
 const Loading = styled.div`
   display: flex;
+  width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0px;
-  ${({ move }) => css`
-    transform: translateX(${move}px);
-  `}
+  position: relative;
+  div {
+    position: absolute;
+    top: 350px;
+    left: 0px;
+    width: 67px;
+    height: 67px;
+    transform-origin: 0% 0%;
+    cursor: pointer;
+    ${({ move }) =>
+      move > 0 &&
+      css`
+        animation: ${moving} 3s;
+        animation-fill-mode: forwards;
+      `}
+    .movieIcon {
+      ${({ roll }) =>
+        roll &&
+        css`
+          animation: ${rolling} 3s;
+        `}
+    }
+  }
+`;
+
+const Detail = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: pink;
 `;
