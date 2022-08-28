@@ -1,26 +1,16 @@
-import { useState } from "react";
 import {
-  BsFillSunFill,
   BsFillCloudFill,
   BsFillCloudDrizzleFill,
   BsFillCloudSnowFill,
 } from "react-icons/bs";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export default function Diary() {
-  const [bg, setBg] = useState(true);
-  const FadeOut = () => {
-    setBg(false);
-  };
+export default function DiaryDetail() {
   const todayStr = new Date().toLocaleDateString("ko-KR", {
     dateStyle: "full",
   });
   return (
     <Container>
-      <Fake bg={bg} />
-      <SunIcon bg={bg}>
-        <BsFillSunFill onClick={() => FadeOut()} />
-      </SunIcon>
       <ContentBox>
         <ImgBox>프로젝트이미지</ImgBox>
         <DescriptionBox>
@@ -41,62 +31,22 @@ export default function Diary() {
 }
 
 const Container = styled.div`
-  background-color: #fff;
-  margin-top: 100px;
   width: 100vw;
-  height: 1000px;
+  height: 100vh;
   overflow: hidden;
   position: relative;
-`;
-
-const Fake = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background-color: #27253d;
-  width: 100vw;
-  height: 1000px;
-  ${({ bg }) =>
-    !bg &&
-    css`
-      display: none;
-    `};
 `;
 
 const ContentBox = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 130px 50px 50px 50px;
   width: 1800px;
   height: 750px;
-  margin: 50px;
   border: black 1px solid;
   padding: 20px;
   border-radius: 8px;
   display: flex;
-`;
-
-const SunIcon = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  color: orange;
-  cursor: pointer;
-  font-size: 300px;
-  ${({ bg }) =>
-    bg
-      ? css`
-          &:hover {
-            transform: rotate(360deg);
-            transition: 10s;
-          }
-        `
-      : css`
-          transform: translate(1550px, 90px);
-          transition: 0.5s;
-          font-size: 50px;
-        `};
 `;
 
 const ImgBox = styled.div`

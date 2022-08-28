@@ -13,18 +13,17 @@ export default function UpcomingList() {
   const imgUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
-    const category = tabList.find((tab) => tab.active).category;
     const getResults = async () => {
-      let { results } = await getUpcoming(category);
+      let { results } = await getUpcoming();
       setMovieList(results);
+      setUpComingList(...upComingList, [...results]);
     };
     getResults();
-  }, [tabList]);
+  }, []);
 
   useEffect(() => {
     const getVideoUrl = async () => {
-      const category = tabList.find((tab) => tab.active).category;
-      let data = await getVideos(movieList, category);
+      let data = await getVideos(movieList);
       let idresults = data.map((obj) => obj.data);
       let results = idresults.map((obj) => obj.results);
       let resultdata = results.map((obj) =>
@@ -34,36 +33,21 @@ export default function UpcomingList() {
         return { ...obj, url: obj.id };
       });
       setVideoList(idchange);
+      setUpComingList([...upComingList, ...videoList]);
     };
     getVideoUrl();
   }, [movieList, tabList]);
 
-  setUpComingList(() => {
-    for (let i = 0; i < videoList.length; ) {
-      return [
-        ...upComingList,
-        {
-          ...videoList[i],
-          ...movieList[i],
-        },
-      ];
-    }
-  });
+  console.log(upComingList);
 
   return (
     <ContentList imgUrl={imgUrl}>
-      {upComingList.map(
-        (upcoming, idx) =>
-          upcoming.overview !== undefined && (
-            <UpcommingItem
-              key={idx}
-              videoUrl={upcoming.key}
-              backdropPath={upcoming.backdrop_path}
-              title={upcoming.title}
-              overview={upcoming.overview}
-            />
-          )
-      )}
+      {upComingList.length > 0 &&
+        upComingList
+          .map((upComing, idx) => (
+            <UpcommingItem key={idx} upComing={upComing} />
+          ))
+          .slice(0, 5)}
     </ContentList>
   );
 }

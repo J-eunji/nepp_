@@ -1,15 +1,12 @@
+import styled, { css, keyframes } from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import { SiThemoviedatabase } from "react-icons/si";
 import { RiMovie2Fill } from "react-icons/ri";
-import styled, { css, keyframes } from "styled-components";
 
 export default function Movie() {
   const scrollRef = useRef();
-
   const [index, setIndex] = useState(0);
-
   const [move, setMove] = useState(false);
-
   const [btn, setBtn] = useState([
     {
       id: 1,
@@ -24,7 +21,11 @@ export default function Movie() {
       name: <RiMovie2Fill size={80} className="movieIcon" />,
       active: true,
     },
-    { id: 2, name: <SiThemoviedatabase size={80} />, active: false },
+    {
+      id: 2,
+      name: <SiThemoviedatabase size={80} />,
+      active: false,
+    },
   ];
 
   const OverBtn = () => {
@@ -61,19 +62,24 @@ export default function Movie() {
           {btn[0]?.name}
         </div>
       </Loading>
-      <Detail></Detail>
+      <Detail>
+        <SpeechBubble>
+          <BoxTail />
+          <Box />
+        </SpeechBubble>
+      </Detail>
     </Container>
   );
 }
 const Container = styled.div`
-  background-color: aliceblue;
+  background-color: #81aed4;
   display: flex;
-  padding-top: 120px;
+  padding-top: 50px;
   width: 200vw;
   height: 100vh;
   overflow: hidden;
   ${({ index }) => css`
-    transform: translate(${index * -100}vw);'
+    transform: translate(${index * -100}vw);
     transition-duration: 0.2s;
   `}
 `;
@@ -122,7 +128,36 @@ const Loading = styled.div`
 `;
 
 const Detail = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: blue;
+  background: linear-gradient(to right, #8ecea2, #05b4e3);
+`;
+
+const SpeechBubble = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 1500px;
+  height: 750px;
+  overflow: hidden;
+  position: relative;
+`;
+
+const Box = styled.div`
+  width: 1450px;
+  height: 750px;
+  background-color: #fff;
+  border-radius: 20px;
+`;
+
+const BoxTail = styled.div`
+  width: 50px;
+  height: 50px;
+  transform: rotate(130deg);
+  background-color: #fff;
+  position: absolute;
+  left: 28px;
+  bottom: -27px;
 `;

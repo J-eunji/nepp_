@@ -36,11 +36,11 @@ export const getUpcoming = async () => {
   }
 };
 
-export const getVideos = async (results, category) => {
+export const getVideos = async (results) => {
   try {
     let ids = results.map((obj) => obj.id);
     let video = await Promise.all(
-      ids.map((id) => instance.get(`${category}/${id}/videos`))
+      ids.map((id) => instance.get(`movie/${id}/videos`))
     );
     return video;
   } catch (e) {

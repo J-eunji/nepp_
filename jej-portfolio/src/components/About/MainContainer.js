@@ -83,7 +83,7 @@ const MainBox = styled.div`
   color: #000;
   border: #000 3px solid;
   border-top: none;
-  margin: 100px 0;
+  margin-top: 130px;
   position: relative;
   h2 {
     position: absolute;

@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 import { getUpcoming } from "../../dataApi";
 
-const getResults = async () => {
+export const getResults = async () => {
   let { results } = await getUpcoming();
   return results;
 };
