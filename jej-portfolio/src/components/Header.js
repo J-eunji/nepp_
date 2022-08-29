@@ -7,9 +7,9 @@ export default function Header() {
   const [scroll, setScroll] = useState(0);
   const [index, setIndex] = useRecoilState(indexState);
   const pageName = [
-    { id: 1, name: "# TMDB" },
-    { id: 2, name: "# DIARY" },
-    { id: 3, name: "# CLONE" },
+    { id: 1, name: "About" },
+    { id: 2, name: "Project" },
+    { id: 3, name: "Contact" },
   ];
   const handleScroll = () => {
     setScroll(window.scrollY);
@@ -31,15 +31,14 @@ export default function Header() {
 
   return (
     <Container active={scroll > 170}>
-      <HomeLogo onClick={() => onClickMenu(0)}>Portfolio</HomeLogo>
-      <ProjectList>
-        <p>Project</p>
+      <HomeLogo onClick={() => onClickMenu(0)}>Jung</HomeLogo>
+      <GnbList>
         {pageName.map((page) => (
           <li key={page.id} onClick={() => onClickMenu(page.id)}>
             {page.name}
           </li>
         ))}
-      </ProjectList>
+      </GnbList>
     </Container>
   );
 }
@@ -49,32 +48,32 @@ const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 100px;
-  padding: 0 50px;
+  height: 130px;
+  padding: 0 200px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-
   ${({ active }) =>
     active &&
     css`
-      background-color: #fff;
+      /* background-color: rgba(255, 255, 255, 0.2); */
       transition: 0.2s;
     `}
 `;
 
 const HomeLogo = styled.h1`
-  font-size: 2.2em;
   display: flex;
   align-items: center;
+  font-size: 2.5em;
+  font-weight: 700;
   z-index: 100;
   cursor: pointer;
 `;
 
-const ProjectList = styled.ul`
+const GnbList = styled.ul`
   display: flex;
-  font-size: 1.6em;
+  font-size: 1.4em;
   padding: 10px;
   z-index: 100;
   font-weight: 600;
@@ -84,6 +83,6 @@ const ProjectList = styled.ul`
   li {
     cursor: pointer;
     font-weight: 600;
-    margin: 0 25px;
+    margin: 0 45px;
   }
 `;

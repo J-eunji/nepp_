@@ -1,0 +1,207 @@
+import styled, { css } from "styled-components";
+import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
+import { FaPeopleArrows } from "react-icons/fa";
+import { BsChatDots } from "react-icons/bs";
+import { IoBookOutline } from "react-icons/io5";
+import { useState } from "react";
+import aboutImg from "../../assets/about.png";
+import Skill from "./Skill";
+import Strength from "./Strength";
+
+export default function About() {
+  const [index, setIndex] = useState(0);
+  const skillList = [
+    { id: 1, name: "HTML", degree: 95 },
+    { id: 2, name: "CSS", degree: 95 },
+    { id: 3, name: "JS", degree: 91 },
+    { id: 4, name: "React", degree: 90 },
+    { id: 5, name: "Python", degree: 60 },
+  ];
+  const strengthList = [
+    { id: 1, name: "소통", icon: <FaPeopleArrows /> },
+    { id: 2, name: "수용", icon: <BsChatDots /> },
+    { id: 3, name: "배움", icon: <IoBookOutline /> },
+  ];
+  const handleSection = (id) => {
+    setIndex(id);
+  };
+  return (
+    <Container index={index}>
+      <IntroduceSection>
+        <ImgBox>
+          <Title>
+            <p>About Me</p>
+          </Title>
+          <Img />
+          <Name>
+            <p>효율성을 추구하는 개발자</p>
+          </Name>
+        </ImgBox>
+        <IntroduceText>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Necessitatibus sit quasi, obcaecati eos animi alias molestiae
+            dolores illo? Id, obcaecati eius? Rerum mollitia corporis nam, illum
+            nobis velit vitae deleniti suscipit aliquam, eaque ipsum? Ad
+            delectus esse, laborum molestiae dolorem dolor perspiciatis eius
+            expedita excepturi nihil voluptatum, corporis maiores minus.
+          </p>
+        </IntroduceText>
+        <BsChevronDoubleRight
+          className="Btn"
+          onClick={() => handleSection(1)}
+          size={40}
+        />
+      </IntroduceSection>
+      <AbilitySection>
+        <BsChevronDoubleLeft
+          className="Btn"
+          onClick={() => handleSection(0)}
+          size={40}
+        />
+        <Box>
+          <SkillBox>
+            <h6>Skill</h6>
+            {skillList.map((skill) => (
+              <Skill key={skill.id} skill={skill} />
+            ))}
+          </SkillBox>
+          <StrengthBox>
+            <h6>Strength</h6>
+            <StrengthList>
+              {strengthList.map((strength) => (
+                <Strength key={strength.id} strength={strength} />
+              ))}
+            </StrengthList>
+          </StrengthBox>
+        </Box>
+      </AbilitySection>
+    </Container>
+  );
+}
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200vw;
+  height: 100vh;
+  overflow: hidden;
+  ${({ index }) => css`
+    transform: translate(${index * -100}vw);
+    transition-duration: 0.8s;
+  `}
+`;
+
+const IntroduceSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 200px;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: peachpuff;
+  .Btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+  }
+`;
+const ImgBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 400px;
+  height: 500px;
+  margin-left: 300px;
+  position: relative;
+`;
+
+const Title = styled.div`
+  position: absolute;
+  top: -40px;
+  left: -140px;
+  font-size: 4em;
+  font-weight: 700;
+`;
+
+const Img = styled.div`
+  width: 400px;
+  height: 500px;
+  background-image: url(${aboutImg});
+  background-size: cover;
+`;
+
+const Name = styled.div`
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  width: 800px;
+  font-size: 2em;
+  font-weight: 700;
+`;
+
+const IntroduceText = styled.div`
+  width: 600px;
+  margin: 400px 0 0 0px;
+  font-size: 1.2em;
+  line-height: 30px;
+`;
+
+const AbilitySection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+  position: relative;
+  .Btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+  }
+`;
+
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 900px;
+  height: 670px;
+  padding: 50px 0;
+  margin-bottom: 100px;
+`;
+
+const SkillBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  h6 {
+    font-size: 1.7em;
+    font-weight: 700;
+  }
+  p {
+    font-size: 1.2em;
+  }
+`;
+
+const StrengthBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.7em;
+  font-weight: 700;
+  flex: 1;
+`;
+
+const StrengthList = styled.div`
+  display: flex;
+  padding: 20px 0;
+`;

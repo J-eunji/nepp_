@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
-import MainSection from "./About/MainSection";
-import Diary from "./Project/Diary/Diary";
-import Movie from "./Project/Movie";
-import Tistory from "./Project/Tistory";
+import MainSection from "./Main/MainSection";
+import About from "./About/About";
+import Project from "./Project/Project";
 import { indexState } from "./atoms";
 import { useRecoilState } from "recoil";
+import Contact from "./Contact/Contact";
 
 export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -36,7 +36,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("wheel", sectionChange, { passive: false });
     };
-  }, [isScrolling, index]);
+  }, [isScrolling, index, setIndex]);
 
   useEffect(() => {
     window.scrollTo({
@@ -48,9 +48,9 @@ export default function Home() {
   return (
     <Container>
       <MainSection />
-      <Movie />
-      <Diary />
-      <Tistory />
+      <About />
+      <Project />
+      <Contact />
     </Container>
   );
 }

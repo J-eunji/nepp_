@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import { RecoilRoot } from "recoil";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
 
@@ -10,7 +9,6 @@ function App() {
       <GlobalStyle />
       <Header />
       <Home />
-      <Footer />
     </RecoilRoot>
   );
 }
@@ -21,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  user-select: none;
+  text-decoration: none;
 }`;
 
 export default App;
