@@ -4,16 +4,26 @@ import ContactItem from "./ContactItem";
 
 export default function Contact() {
   const contactList = [
-    { id: 1, icon: <AiFillMail />, link: "sun220711@gmail.com" },
-    { id: 2, icon: <AiFillGithub />, link: "https://github.com/J-eunji" },
-    { id: 3, icon: <AiFillTool />, link: "https://devrecordabc.tistory.com/" },
+    { id: 1, icon: <AiFillMail />, text: "sun220711@gmail.com" },
+    {
+      id: 2,
+      icon: <AiFillGithub />,
+      link: "https://github.com/J-eunji",
+      text: "https://github.com/J-eunji",
+    },
+    {
+      id: 3,
+      icon: <AiFillTool />,
+      link: "https://devrecordabc.tistory.com/",
+      text: "https://devrecordabc.tistory.com/",
+    },
   ];
   return (
     <Container>
       <Box>
-        <Thx></Thx>
+        <Thx>img</Thx>
         <ContactBox>
-          <p>Contact</p>
+          <h6>Contact</h6>
           {contactList.map((contact) => (
             <ContactItem key={contact.id} contact={contact} />
           ))}
@@ -54,8 +64,8 @@ const ContactBox = styled.div`
   padding: 20px;
   flex-direction: column;
   justify-content: center;
-  p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+  h6 {
+    font-size: 1.4em;
+    padding: 7px 0;
   }
 `;

@@ -3,13 +3,14 @@ import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 import { FaPeopleArrows } from "react-icons/fa";
 import { BsChatDots } from "react-icons/bs";
 import { IoBookOutline } from "react-icons/io5";
-import { useState } from "react";
-import aboutImg from "../../assets/about.png";
+import { useState, useEffect } from "react";
+import aboutImg from "../../assets/imgs/about.png";
 import Skill from "./Skill";
 import Strength from "./Strength";
 
 export default function About() {
-  const [index, setIndex] = useState(0);
+  const [aboutIndex, setAboutIndex] = useState(0);
+  const [scroll, setScroll] = useState(0);
   const skillList = [
     { id: 1, name: "HTML", degree: 95 },
     { id: 2, name: "CSS", degree: 95 },
@@ -22,29 +23,40 @@ export default function About() {
     { id: 2, name: "수용", icon: <BsChatDots /> },
     { id: 3, name: "배움", icon: <IoBookOutline /> },
   ];
+
   const handleSection = (id) => {
-    setIndex(id);
+    setAboutIndex(id);
   };
+
+  const handleScroll = () => {
+    setScroll(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scaleX = aboutIndex === 1 && scroll >= window.innerHeight;
+
   return (
-    <Container index={index}>
+    <Container aboutIndex={aboutIndex}>
       <IntroduceSection>
         <ImgBox>
           <Title>
-            <p>About Me</p>
+            <h3>About Me</h3>
           </Title>
           <Img />
           <Name>
-            <p>효율성을 추구하는 개발자</p>
+            <h4>효율성을 추구하는 개발자</h4>
           </Name>
         </ImgBox>
         <IntroduceText>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Necessitatibus sit quasi, obcaecati eos animi alias molestiae
-            dolores illo? Id, obcaecati eius? Rerum mollitia corporis nam, illum
-            nobis velit vitae deleniti suscipit aliquam, eaque ipsum? Ad
-            delectus esse, laborum molestiae dolorem dolor perspiciatis eius
-            expedita excepturi nihil voluptatum, corporis maiores minus.
+            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
+            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
+            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
+            자기소개자기어필
           </p>
         </IntroduceText>
         <BsChevronDoubleRight
@@ -63,7 +75,7 @@ export default function About() {
           <SkillBox>
             <h6>Skill</h6>
             {skillList.map((skill) => (
-              <Skill key={skill.id} skill={skill} />
+              <Skill key={skill.id} skill={skill} scaleX={scaleX} />
             ))}
           </SkillBox>
           <StrengthBox>
@@ -87,8 +99,8 @@ const Container = styled.div`
   width: 200vw;
   height: 100vh;
   overflow: hidden;
-  ${({ index }) => css`
-    transform: translate(${index * -100}vw);
+  ${({ aboutIndex }) => css`
+    transform: translate(${aboutIndex * -100}vw);
     transition-duration: 0.8s;
   `}
 `;

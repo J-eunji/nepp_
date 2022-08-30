@@ -1,19 +1,12 @@
-import { useState } from "react";
 import styled from "styled-components";
 import MainContainer from "./MainContainer";
+import CloneContainer from "./CloneContainer";
 
 export default function MainSection() {
-  const [maskX, setMaskX] = useState(0);
-  const [maskY, setMaskY] = useState(0);
-  const handleMask = (e) => {
-    setMaskX(e.clientX);
-    setMaskY(e.clientY);
-  };
-
   return (
-    <Section onMouseMove={(e) => handleMask(e)}>
+    <Section>
       <MainContainer />
-      <MainContainer isClone={true} maskX={maskX} maskY={maskY} />
+      <CloneContainer />
     </Section>
   );
 }
@@ -22,5 +15,4 @@ const Section = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: hidden;
 `;
