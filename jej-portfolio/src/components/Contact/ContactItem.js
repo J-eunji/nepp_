@@ -6,7 +6,9 @@ export default function ContactItem({ contact }) {
   return (
     <Container>
       <span>{icon}</span>
-      <a href={link}>{text}</a>
+      <a href={link} target="_blank">
+        {text}
+      </a>
     </Container>
   );
 }

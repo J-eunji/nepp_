@@ -5,6 +5,7 @@ import { BsChatDots } from "react-icons/bs";
 import { IoBookOutline } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import aboutImg from "../../assets/imgs/about.png";
+import { bg_color } from "../../assets/color";
 import Skill from "./Skill";
 import Strength from "./Strength";
 
@@ -53,10 +54,12 @@ export default function About() {
         </ImgBox>
         <IntroduceText>
           <p>
-            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
-            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
-            자기소개자기어필 자기소개자기어필 자기소개자기어필 자기소개자기어필
-            자기소개자기어필
+            안녕하세요. 프론트엔드 웹 개발 지원자 정은지입니다.
+            <br /> 제 적성에 맞는 길을 찾아 신중히 한 선택 후회없도록 열심히
+            하겠습니다. <br /> 5년 간 사회복지사로서 쌓은 소통, 협력, 수용
+            능력과
+            <br />
+            저의 장점인 끈기, 노력을 보여드리겠습니다.
           </p>
         </IntroduceText>
         <BsChevronDoubleRight
@@ -113,7 +116,7 @@ const IntroduceSection = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-color: peachpuff;
+  background-color: ${bg_color};
   .Btn {
     cursor: pointer;
     position: absolute;
@@ -168,7 +171,7 @@ const AbilitySection = styled.div`
   align-items: flex-end;
   width: 100vw;
   height: 100vh;
-  background-color: lightblue;
+  background-color: ${bg_color};
   position: relative;
   .Btn {
     cursor: pointer;

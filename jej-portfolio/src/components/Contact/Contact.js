@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiFillGithub, AiFillTool, AiFillMail } from "react-icons/ai";
 import ContactItem from "./ContactItem";
+import { bg_color } from "../../assets/color";
 
 export default function Contact() {
   const contactList = [
@@ -39,7 +40,7 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #d1ffd1;
+  background-color: ${bg_color};
 `;
 
 const Box = styled.div`
