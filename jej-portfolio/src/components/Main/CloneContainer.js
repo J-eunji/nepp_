@@ -24,7 +24,7 @@ export default function CloneContainer() {
 
   const { x, y } = mask;
 
-  const bigMouseOver = () => {
+  const bigMouseEnter = () => {
     setMaskSize(20);
   };
   const defaultMouseOver = () => {
@@ -36,7 +36,7 @@ export default function CloneContainer() {
       <Container maskSize={maskSize} x={x} y={y}>
         <MainBox>
           <ContentBox
-            onMouseOver={() => bigMouseOver()}
+            onMouseEnter={() => bigMouseEnter()}
             onMouseLeave={() => defaultMouseOver()}
           >
             <h2>FRONT-END PORTFOLIO</h2>
@@ -73,6 +73,7 @@ const Container = styled.div.attrs(({ maskSize, x, y }) => ({
   background-image: url(${mainImg});
   background-repeat: no-repeat;
   background-size: cover;
+  transition: clip-path 0.1s;
 `;
 
 const MainBox = styled.div`

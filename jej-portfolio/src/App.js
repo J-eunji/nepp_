@@ -2,9 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import { RecoilRoot } from "recoil";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import scdream from "./assets/fonts/SCDream3.ttf";
-import scdreamBold from "./assets/fonts/SCDream7.ttf";
-import english from "./assets/fonts/THEBOLDFONT.ttf";
+import scdream from "./static/fonts/SCDream3.ttf";
+import scdreamBold from "./static/fonts/SCDream7.ttf";
+import english from "./static/fonts/THEBOLDFONT.ttf";
+import "./font.css";
 
 function App() {
   return (
@@ -17,24 +18,6 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: "content";
-  src: url(${scdream});
-  unicode-range: U+AC00-D7A3;
-}
-
-@font-face {
-  font-family: "contentBold";
-  src: url(${scdreamBold});
-  unicode-range: U+AC00-D7A3, U+0041-005A, U+0061-007A;
-}
-
-@font-face {
-  font-family: "titleEn";
-  src: url(${english});
-  unicode-range: U+0041-005A, U+0061-007A;
-}
-
 * {
   list-style: none;
   box-sizing: border-box;
@@ -52,6 +35,11 @@ const GlobalStyle = createGlobalStyle`
 }
 
 #root header, h1, h2, h3, h5, h6 {
+  font-family: 'titleEn';
+  font-weight: lighter;
+}
+
+#root h1 {
   font-family: 'titleEn';
   font-weight: lighter;
 }
