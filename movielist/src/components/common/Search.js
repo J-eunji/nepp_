@@ -18,7 +18,7 @@ const debounce = (func, wait) => {
   };
 };
 
-export default function Search({ result }) {
+export default function Search() {
   const [query, setQuery] = useState("");
   const [resultList, setResultList] = useState([]);
 
@@ -63,9 +63,3 @@ const ResultList = styled.ul`
   border: 1px solid #ddd;
   border-bottom: none;
 `;
-
-// const ResultItem = styled.li`
-//   border-bottom: 1px solid #ddd;
-//   padding: 10px 5px;
-//   height: 20px;
-// `;
