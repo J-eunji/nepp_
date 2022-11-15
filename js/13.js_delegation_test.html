@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>js_delegate</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-      }
-      .container {
-        width: 100vh;
-        height: auto;
-        border: 3px solid red;
-      }
-      .box {
-        width: 50px;
-        height: 50px;
-        border: 3px solid black;
-        margin: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-    </div>
-    <button>생성</button>
-    <script>
-      let container = document.querySelector(".container");
-      let boxList = document.querySelectorAll(".box");
-      let button = document.querySelector("button");
-      // 창 띄우기 이벤트
-      container.addEventListener("click", function (e) {
-        // 이벤트 위임: 이벤트를 상위요소에 위임, 버블링 이용한 것
-        // matches를 함꼐 사용, 분기처리할 수 있음.
-        // if 클릭한 타겟이 컨테이너 박스와 같은 것인지? true -> click창 띄우기
-        // 삭제버튼을 누르면 생성된 내용을 삭제
-        if (e.target.matches(".container .box")) {
-          console.log("box");
-        } else if (e.target.matches(".container p button")) {
-          let parent = e.target.parentNode;
-          container.removeChild(parent);
-        }
-      });
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>js_delegate</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+            }
+            .container {
+                width: 100vh;
+                height: auto;
+                border: 3px solid red;
+            }
+            .box {
+                width: 50px;
+                height: 50px;
+                border: 3px solid black;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+        <button>생성</button>
+        <script>
+            let container = document.querySelector(".container");
+            let boxList = document.querySelectorAll(".box");
+            let button = document.querySelector("button");
+            // 창 띄우기 이벤트
+            container.addEventListener("click", function (e) {
+                // 이벤트 위임: 이벤트를 상위요소에 위임, 버블링 이용한 것
+                // matches를 함꼐 사용, 분기처리할 수 있음.
+                // if 클릭한 타겟이 컨테이너 박스와 같은 것인지? true -> click창 띄우기
+                // 삭제버튼을 누르면 생성된 내용을 삭제
+                if (e.target.matches(".container .box")) {
+                    console.log("box");
+                } else if (e.target.matches(".container p button")) {
+                    let parent = e.target.parentNode;
+                    container.removeChild(parent);
+                }
+            });
 
-      // 삭제버튼 추가 이벤트
-      button.addEventListener("click", function () {
-        container.innerHTML += "<p>p태그입니다. <button>삭제</button></p>";
-      });
-    </script>
-  </body>
+            // 삭제버튼 추가 이벤트
+            button.addEventListener("click", function () {
+                container.innerHTML +=
+                    "<p>p태그입니다. <button>삭제</button></p>";
+            });
+
+            var title = "환영합니다.";
+            var house = {
+                title: "집이예요~",
+                room: {
+                    title: "방입니다.",
+                    getTitle: function () {
+                        return this.title;
+                    },
+                },
+            };
+            var fn1 = house.room.getTitle;
+            console.log(fn1());
+        </script>
+    </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>jse</title>
+    </head>
+    <body>
+        <script>
+            // 클로저
+            function makeFun() {
+                var name = "Foo",
+                    count = 0; //함수스코프 count
+                console.log(`함수스코프 count++: ${count++}`);
+                function displayName() {
+                    console.log(`전역스코프 count++: ${count++}`);
+                }
+                return displayName;
+            }
+            makeFun(); //function:displayName (makeFun()스코프 name, count)
+            makeFun();
+            var myFn = makeFun(); //myFn()은 window에서 선언됨, name/count가 전역변수가 됨
+            myFn(); // display의 리턴값; count 0
+            myFn(); // count 1: 복사되지 않고 환경변수처럼 사용되어 값 업데이트 됨
+
+            console.log("--------------------------------------------------");
+
+            function makeAdder(x) {
+                return function (y) {
+                    return x + y;
+                };
+            }
+
+            var add5 = makeAdder(5);
+            console.log(add5(2));
+            var add10 = makeAdder(10);
+            console.log(add10(5));
+
+            console.log("--------------------------------------------------");
+
+            // this
+            function f1() {
+                return this;
+            }
+
+            console.log(`f1() this === window : ${f1() === window}`); //f1()의 this는 window를 참조
+
+            console.log("--------------------------------------------------");
+
+            var obj1 = {
+                attr: 10,
+                fn: function () {
+                    console.log("this.Attr: " + this.attr); // this가 window?!?!!?!?!?
+                },
+            };
+
+            obj1.fn(); // fn()의 this는 obj.1 참조
+            obj1.fn.call(window); // fn()의 this는 window 참조, window에 attr선언 안했기 때문에 undefined
+
+            console.log("--------------------------------------------------");
+
+            var title = "window";
+            var house = {
+                title: "house",
+                room: {
+                    title: "room",
+                    getTitle: function () {
+                        return this.title;
+                    },
+                },
+            };
+
+            console.log(house.room.getTitle()); // this == room
+            var fn1 = house.room.getTitle;
+
+            console.log(fn1()); // this == window (fn1()을 호출한 객체는 window!!!) (window.)f1();
+            console.log(fn1.call(house)); // this == house (call로 fn1()의 this를 house로 지정) (house.)f1();
+            console.log(fn1.bind(house)); // 함수로 반환 (bind로 fn1()의 this를 house로 지정 후 함수 반환)
+
+            var fn2 = fn1.bind(house);
+
+            console.log(fn2()); // this == house.room
+            console.log(house.room.getTitle.call(house)); // this == house
+            house.getTitle = house.room.getTitle; // house.room.getTitle을 house.getTitle에 넣음
+            console.log(house.getTitle()); // this == house
+            console.log(house.getTitle.call(window)); // this == window (call은 상위만);
+
+            console.log("--------------------------------------------------");
+
+            function User(name, age, num) {
+                var nickname = "dog_kaka";
+                this.name = name; //생성자 함수 this: 자기 자신을 가리킴
+                this.age = age;
+                this.num = num;
+                this.send = function () {
+                    return nickname;
+                };
+            }
+
+            var user = new User("Tommy", 24, 1); //여기서 this는 user
+
+            console.log(user); //객체 {name: 'Tom', age: 24, num: 1, send: ƒ}
+            console.log(user.nickname); // 객체로 지정하지 않았음 + nickname만 찍으면 블록스코프기 떄문에 에러
+            console.log(user.name); // Tom
+            console.log(window);
+            console.log(user.num); // 1
+            console.log(user.send()); // "dog_kaka"
+
+            console.log("--------------------------------------------------");
+
+            var obj2 = {
+                self: this,
+                callee: function () {
+                    console.log("this: ", this);
+                    console.log("self: ", self);
+                },
+            };
+            console.log("window", obj2.callee.call(window, null)); //this, self: window (call함수로 인해 window참조)
+            console.log("obj2", obj2.callee()); //this(obj 참조): obj, self(window 참조): window
+
+            console.log("--------------------------------------------------");
+
+            function f() {
+                return this.a;
+            }
+
+            var g = f.bind({ a: "Crazy" });
+            console.log(g()); //Crazy (f()를 실행하는 함수)
+            var o = { a: 10, f: f, g: g };
+            console.log(o.f(), o.g()); //10(f의 this는 o를 참조), Crazy(g는 f함수 실행, f함수의 this는 f참조)
+
+            console.log("--------------------------------------------------");
+
+            // 화살표 함수
+            // 메소드에서 함수 호출 시 this: 지정되지 않음
+            // 메소드에서 의도대로 this 사용하려면: 화살표 함수 사용
+            // js는 현재 환경에 식별자가 없으면 상위 스코프를 찾아감.
+            const cat = {
+                name: "meow",
+                foo1: function () {
+                    const foo2 = () => {
+                        console.log(this.name);
+                    };
+                    foo2();
+                },
+            };
+
+            cat.foo1(); // meow
+
+            console.log("--------------------------------------------------");
+
+            function Car(color, speed, fuel, mileage) {
+                this.color = color;
+                this.speed = speed;
+                this.fuel = fuel;
+                this.mileage = mileage;
+                this.distance = function (km) {
+                    this.fuel -= km / this.mileage;
+                    console.log(`이동거리: ${km}km, 남은 연료량: ${this.fuel}`);
+                };
+            }
+
+            let car01 = new Car("black", 60, 20, 13);
+            console.log(car01);
+            console.log(car01.distance(60)); //distance의 this는 car01을 가리킴!!!!!!
+
+            console.log("--------------------------------------------------");
+        </script>
+    </body>
+</html>
